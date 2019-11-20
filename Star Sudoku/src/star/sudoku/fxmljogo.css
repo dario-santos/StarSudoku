@@ -1,0 +1,14 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.triangle{
+  -fx-shape: "M150 0 L75 200 L225 200 Z";
+  -fx-background-color: #039BE5;
+}
+
+
+.triangle_upsidedown{
+  -fx-shape: "M 100 100 L 300 100 L 200 300 z";
+  -fx-background-color: #F39005;
+}

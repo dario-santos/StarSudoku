@@ -1,0 +1,8 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.triangle{
+  -fx-shape: "M150 0 L75 200 L225 200 Z";
+  -fx-background-color: #039BE5;
+}
