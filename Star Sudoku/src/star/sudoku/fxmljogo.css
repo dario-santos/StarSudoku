@@ -2,13 +2,63 @@
  * Empty Stylesheet file.
  */
 
-.triangle{
-  -fx-shape: "M150 0 L75 200 L225 200 Z";
-  -fx-background-color: #039BE5;
+.triangle_area1{
+  -fx-background-color: #F39005;
+  -fx-border-style: solid;
+}
+
+.triangle_area1_upsidedown{
+  -fx-background-color: #F39005;
+  -fx-border-style: solid;
 }
 
 
-.triangle_upsidedown{
-  -fx-shape: "M 100 100 L 300 100 L 200 300 z";
-  -fx-background-color: #F39005;
+.triangle_area2{
+  -fx-background-color: #ED98CD;
+  -fx-border-style: solid;
+}
+
+.triangle_area2_upsidedown{
+  -fx-background-color: #ED98CD;
+  -fx-border-style: solid;
+}
+
+.triangle_area3{
+  -fx-background-color: #C0EDFF;
+  -fx-border-style: solid;
+}
+
+.triangle_area3_upsidedown{
+  -fx-background-color: #C0EDFF;
+  -fx-border-style: solid;
+}
+
+.triangle_area4{
+  -fx-background-color: #FDF779;
+  -fx-border-style: solid;
+}
+
+.triangle_area4_upsidedown{
+  -fx-background-color: #FDF779;
+  -fx-border-style: solid;
+}
+
+.triangle_area5{
+  -fx-background-color: #FD8092;
+  -fx-border-style: solid;
+}
+
+.triangle_area5_upsidedown{
+  -fx-background-color: #FD8092;
+  -fx-border-style: solid;
+}
+
+.triangle_area6{
+  -fx-background-color: #D8ED6E;
+  -fx-border-style: solid;
+}
+
+.triangle_area6_upsidedown{
+  -fx-background-color: #D8ED6E;
+  -fx-border-style: solid;
 }

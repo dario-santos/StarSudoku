@@ -1,49 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="star.sudoku.FXMLJogoController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="594.0" prefWidth="884.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLJogoController">
     <stylesheets>
         <URL value="@fxmljogo.css" />
     </stylesheets>
    <children>
-      <TextField id="triangle" layoutX="286.0" layoutY="263.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="315.0" layoutY="263.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="344.0" layoutY="263.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="330.0" layoutY="231.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="301.0" layoutY="231.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="316.0" layoutY="200.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="287.0" layoutY="139.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="316.0" layoutY="139.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="345.0" layoutY="139.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="331.0" layoutY="107.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="302.0" layoutY="107.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="317.0" layoutY="76.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="198.0" layoutY="200.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="227.0" layoutY="200.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="256.0" layoutY="200.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="243.0" layoutY="169.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="213.0" layoutY="168.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="228.0" layoutY="137.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle" stylesheets="@fxmljogo.css" text="a" />
-      <TextField id="triangle" layoutX="315.0" layoutY="168.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="344.0" layoutY="168.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="359.0" layoutY="201.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="345.0" layoutY="230.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="329.0" layoutY="199.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="374.0" layoutY="168.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="227.0" layoutY="232.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="256.0" layoutY="232.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="271.0" layoutY="265.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="257.0" layoutY="294.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="241.0" layoutY="263.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="286.0" layoutY="232.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="228.0" layoutY="106.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="257.0" layoutY="106.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="272.0" layoutY="139.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="258.0" layoutY="168.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="242.0" layoutY="137.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
-      <TextField id="triangle" layoutX="287.0" layoutY="106.0" prefHeight="31.0" prefWidth="29.0" styleClass="triangle_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area3_5" layoutX="460.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_8" layoutX="577.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_9" layoutX="616.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_7" layoutX="537.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_2" layoutX="500.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_4" layoutX="577.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_7" layoutX="500.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_9" layoutX="578.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_3" layoutX="497.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_1" layoutX="497.0" layoutY="149.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_4" layoutX="537.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_8" layoutX="537.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_1" layoutX="262.0" layoutY="228.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_8" layoutX="302.0" layoutY="308.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_9" layoutX="342.0" layoutY="309.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_7" layoutX="262.0" layoutY="309.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_3" layoutX="262.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_4" layoutX="302.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area4_2" layoutX="578.0" layoutY="307.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_1" layoutX="618.0" layoutY="349.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_3" layoutX="618.0" layoutY="307.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_8" layoutX="655.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_7" layoutX="618.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_4" layoutX="655.0" layoutY="307.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_8" layoutX="340.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_6" layoutX="420.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_2" layoutX="420.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_1" layoutX="380.0" layoutY="428.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_4" layoutX="340.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_9" layoutX="302.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_2" layoutX="302.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_5" layoutX="262.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_3" layoutX="340.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_1" layoutX="340.0" layoutY="266.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_4" layoutX="380.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_9" layoutX="420.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area2_7" layoutX="380.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area2_5" layoutX="460.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2_upsidedown" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area2_3" layoutX="380.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area2" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_6" layoutX="500.0" layoutY="388.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_3" layoutX="537.0" layoutY="348.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area3_1" layoutX="537.0" layoutY="308.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area3" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area4_9" layoutX="695.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_6" layoutX="578.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area4_5" layoutX="537.0" layoutY="268.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area4_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area5_6" layoutX="460.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_2" layoutX="460.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area5_5" layoutX="420.0" layoutY="227.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area5" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area6_6" layoutX="302.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_7" layoutX="340.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area6_8" layoutX="380.0" layoutY="188.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area6_upsidedown" stylesheets="@fxmljogo.css" text="b" />
+      <TextField id="triangle" fx:id="area1_6" layoutX="222.0" layoutY="308.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_2" layoutX="222.0" layoutY="269.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <TextField id="triangle" fx:id="area1_5" layoutX="182.0" layoutY="308.0" prefHeight="40.0" prefWidth="40.0" styleClass="triangle_area1" stylesheets="@fxmljogo.css" text="a" />
+      <Button layoutX="410.0" layoutY="549.0" mnemonicParsing="false" onAction="#handleButtonValidate" text="Button" />
    </children>
 </AnchorPane>

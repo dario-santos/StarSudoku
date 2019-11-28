@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 
 public class AjudanteParaBD 
 {
+    
+    public static final String DB_PATH = "./StarSudoku.db";
     private static final String DB_NOME = "StarSudoku";
 
     // Table Names
@@ -46,7 +48,7 @@ public class AjudanteParaBD
     
     public static void createNewDatabase() 
     {
-        String url = "jdbc:sqlite:C:/sqlite/db/" + DB_NOME + ".db";
+        String url = "jdbc:sqlite:" + DB_PATH;
         
         try (Connection conn = DriverManager.getConnection(url))
         {
@@ -72,7 +74,7 @@ public class AjudanteParaBD
         Connection conn = null;
         try 
         {
-            String url = "jdbc:sqlite:C:/sqlite/db/" + DB_NOME  + ".db";
+            String url = "jdbc:sqlite:" + DB_PATH;
             
             conn = DriverManager.getConnection(url);
             
