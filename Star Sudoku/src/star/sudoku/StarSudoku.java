@@ -14,7 +14,7 @@ public class StarSudoku extends Application
     @Override
     public void start(Stage stage) throws Exception 
     {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLJogo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLMenu.fxml"));
         
         Scene scene = new Scene(root);
         

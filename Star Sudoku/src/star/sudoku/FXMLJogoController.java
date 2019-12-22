@@ -5,8 +5,14 @@
  */
 package star.sudoku;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,6 +24,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import star.sudoku.sqlite.AjudanteParaBD;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -94,8 +108,8 @@ public class FXMLJogoController implements Initializable
     
     @FXML private AnchorPane pane;
     
+    @FXML private Button controlPause;
     @FXML private Label lTimer;
-    long start = 0;
                 
     private ArrayList<ArrayList<TextField>> areas = new ArrayList<ArrayList<TextField>>();
     private ArrayList<ArrayList<TextField>> lines = new ArrayList<ArrayList<TextField>>(); 
@@ -104,6 +118,14 @@ public class FXMLJogoController implements Initializable
     private int [][] solution = null;
     String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     
+    
+    private boolean isGamePaused = false;
+    
+    private int start = 0;
+    
+    private int gameLevel = 0;
+    private int idUser = 0;
+    
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
@@ -111,14 +133,107 @@ public class FXMLJogoController implements Initializable
             if(!isAreaCorrect(i, areas) || !isLineCorrect(i, lines))
             {
                 pane.setStyle("-fx-background-color: #e74c3c;");
-                return;
+                //return;
             }
 
         // Verificar as colunas
         
         // Se correu tudo bem o jogo terminou
         pane.setStyle("-fx-background-color: #2ecc71;");
+        
+        
+        
+        String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
+                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + idUser +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + gameLevel +  ";";
+        
+        boolean exists = false;
+        int bestTime = 0;
+        int idPontuancao = 0;
+        
+        try (Connection conn = AjudanteParaBD.ConnectToDB())
+        {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            if(rs.next())
+            {
+                exists = true;
+                bestTime = rs.getInt(AjudanteParaBD.PONTUACAO_TEMPO);
+                idPontuancao = rs.getInt(AjudanteParaBD.PONTUACAO_ID);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        // ----------------------------
+        if(!exists)
+        {
+            sql = "INSERT INTO "+ AjudanteParaBD.TABELA_PONTUACAO + "(" + AjudanteParaBD.PONTUACAO_NIVEL + "," + AjudanteParaBD.PONTUACAO_TEMPO + "," + AjudanteParaBD.PONTUACAO_IDUTILIZADOR + ") VALUES(?,?,?)";
 
+            try (Connection conn = AjudanteParaBD.ConnectToDB())
+            {
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                pstmt.setInt(1, gameLevel);
+                pstmt.setInt(2, start);
+                pstmt.setInt(3, idUser);
+                pstmt.executeUpdate();
+            } catch (SQLException e) 
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+        else
+        {
+            // Todo: Update
+            if(start < bestTime)
+            {
+                sql = "UPDATE " + AjudanteParaBD.TABELA_PONTUACAO + " SET " + AjudanteParaBD.PONTUACAO_TEMPO + " = ? "
+                   + " WHERE " + AjudanteParaBD.PONTUACAO_ID + " = ?";
+                
+                 try (Connection conn = AjudanteParaBD.ConnectToDB();
+                    PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    // set the corresponding param
+                    pstmt.setInt(1, start);
+                    pstmt.setInt(2, idPontuancao);
+                    pstmt.executeUpdate();
+                } catch (SQLException e) {
+                    System.out.println("Update: " + e.getMessage());
+                }
+            }
+        }
+    }
+    
+    @FXML
+    private void handlePauseGame(ActionEvent event)
+    {
+        isGamePaused = isGamePaused ? false : true;
+        controlPause.setText(isGamePaused ? "Continuar" : "Pausar");
+
+        for (int a = 0; a < 6; a++) 
+        {
+            ArrayList<TextField> area = areas.get(a);
+            for (int i = 0; i < 9; i++)
+                area.get(i).setVisible(!isGamePaused);
+        }
+        
+    }
+    
+    @FXML
+    private void handleBack(ActionEvent event)
+    {
+        Parent root;
+        try 
+        {
+            root = FXMLLoader.load(getClass().getResource("FXMLSelecionarNivel.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) controlPause.getScene().getWindow();
+            
+            stage.setScene(scene);
+            stage.show();
+        } 
+        catch (IOException ex) 
+        {
+            Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     // Função para ver se uma area está correta
@@ -152,9 +267,9 @@ public class FXMLJogoController implements Initializable
     }
 
     
-    private void loadSudokuBoard()
+    private void loadSudokuBoard(int level)
     {
-        int[][] initial = GameLevels.getInitialBoard(1);
+        int[][] initial = GameLevels.getInitialBoard(level);
         
         
         for(int a = 0 ; a < 6 ; a++)
@@ -179,6 +294,8 @@ public class FXMLJogoController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        idUser = SharedInformation.idUser;
+        gameLevel = SharedInformation.gameLevel;
         
         // Lista de Text fields para cada area
         ArrayList<TextField> area1 = new ArrayList<>();
@@ -407,17 +524,42 @@ public class FXMLJogoController implements Initializable
         columns.add(column6);
         */
         
-        loadSudokuBoard();
+        loadSudokuBoard(gameLevel);
+        
+        // Clock
         Timer timer = new Timer();
-            timer.scheduleAtFixedRate(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() 
+        {
             @Override
             public void run() 
             {
                 Platform.runLater(() -> 
                 {
-                    lTimer.setText(String.valueOf(start++));
+                    if(isGamePaused)
+                        return;
+                    
+                    start++;
+                    int hours = (int)   start / 3600;
+                    int minutes = (int) (start % 3600) / 60;
+                    int seconds = (int) start % 60;
+
+                    String timeLeftFormatted;
+                    if(hours == 0 && minutes == 0)
+                    {
+                        timeLeftFormatted = String.format(Locale.getDefault(), "00m%02ds", seconds);
+                    }
+                    else if (hours == 0)
+                    {
+                        timeLeftFormatted = String.format(Locale.getDefault(), "%02dm%02ds", minutes, seconds);
+                    }
+                    else
+                    {
+                        timeLeftFormatted = String.format(Locale.getDefault(),"%02dh%02dm%02ds",hours, minutes, seconds);
+                    }
+                    lTimer.setText(timeLeftFormatted);
                 });
             }
         }, 0, 1000);
+        
     }    
 }

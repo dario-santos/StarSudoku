@@ -11,7 +11,7 @@
     </stylesheets>
    <children>
       <Label layoutX="222.0" layoutY="32.0" text="SELECIONAR NÍVEL" />
-      <Button layoutX="109.0" layoutY="139.0" mnemonicParsing="false" text="1" />
+      <Button fx:id="level_1" layoutX="109.0" layoutY="139.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="1" />
       <Button layoutX="157.0" layoutY="139.0" mnemonicParsing="false" text="2" />
       <Button layoutX="109.0" layoutY="191.0" mnemonicParsing="false" text="3" />
       <Button layoutX="157.0" layoutY="191.0" mnemonicParsing="false" text="4" />
@@ -23,5 +23,6 @@
       <Button layoutX="382.0" layoutY="191.0" mnemonicParsing="false" text="3" />
       <Button layoutX="441.0" layoutY="139.0" mnemonicParsing="false" text="2" />
       <Button layoutX="441.0" layoutY="191.0" mnemonicParsing="false" text="4" />
+      <Button layoutX="29.0" layoutY="27.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" />
    </children>
 </AnchorPane>

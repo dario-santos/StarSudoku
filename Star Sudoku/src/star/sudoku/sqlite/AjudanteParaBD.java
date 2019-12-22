@@ -8,25 +8,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AjudanteParaBD 
-{
-    
+{   
     public static final String DB_PATH = "./StarSudoku.db";
     private static final String DB_NOME = "StarSudoku";
 
     // Table Names
-    protected static final String TABELA_UTILIZADOR = "Utilizador";
-    protected static final String TABELA_PONTUACAO = "Pontuacao";
+    public static final String TABELA_UTILIZADOR = "Utilizador";
+    public static final String TABELA_PONTUACAO = "Pontuacao";
 
     // Tabela Utilizador - Colunas
-    protected static final String UTILIZADOR_ID = "idUtilizador";
-    protected static final String UTILIZADOR_NOME = "Nome";
-    protected static final String UTILIZADOR_PALAVRAPASSE = "PalavraPasse";
+    public static final String UTILIZADOR_ID = "idUtilizador";
+    public static final String UTILIZADOR_NOME = "Nome";
+    public static final String UTILIZADOR_PALAVRAPASSE = "PalavraPasse";
 
     // Tabela Pontuacao - Colunas
-    protected static final String PONTUACAO_ID = "idPontuacao";
-    protected static final String PONTUACAO_NIVEL = "Nível";
-    protected static final String PONTUACAO_PONTUACAO = "Pontuacao";
-    protected static final String PONTUACAO_IDUTILIZADOR = "idUtilizador";
+    public static final String PONTUACAO_ID = "idPontuacao";
+    public static final String PONTUACAO_NIVEL = "Nível";
+    public static final String PONTUACAO_TEMPO = "Tempo";
+    public static final String PONTUACAO_IDUTILIZADOR = "idUtilizador";
 
     // Table Create Statements
     // User table create statement
@@ -40,7 +39,7 @@ public class AjudanteParaBD
     private static final String CREATE_TABELA_PONTUACAO = "CREATE TABLE " + TABELA_PONTUACAO + "("
             + PONTUACAO_ID + " INTEGER PRIMARY KEY,"
             + PONTUACAO_NIVEL + " INTEGER,"
-            + PONTUACAO_PONTUACAO + " INTEGER,"
+            + PONTUACAO_TEMPO + " INTEGER,"
             + PONTUACAO_IDUTILIZADOR + " INTEGER"
             + ");";
 

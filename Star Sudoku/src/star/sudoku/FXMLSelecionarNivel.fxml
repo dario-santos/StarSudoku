@@ -5,23 +5,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLSelecionarNivelController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="900.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLSelecionarNivelController">
     <stylesheets>
         <URL value="@fxmlselecionarnivel.css" />
     </stylesheets>
    <children>
-      <Label layoutX="222.0" layoutY="32.0" text="SELECIONAR NÍVEL" />
-      <Button layoutX="109.0" layoutY="139.0" mnemonicParsing="false" text="1" />
-      <Button layoutX="157.0" layoutY="139.0" mnemonicParsing="false" text="2" />
-      <Button layoutX="109.0" layoutY="191.0" mnemonicParsing="false" text="3" />
-      <Button layoutX="157.0" layoutY="191.0" mnemonicParsing="false" text="4" />
-      <Button layoutX="236.0" layoutY="191.0" mnemonicParsing="false" text="3" />
-      <Button layoutX="236.0" layoutY="139.0" mnemonicParsing="false" text="1" />
-      <Button layoutX="286.0" layoutY="139.0" mnemonicParsing="false" text="2" />
-      <Button layoutX="286.0" layoutY="191.0" mnemonicParsing="false" text="4" />
-      <Button layoutX="382.0" layoutY="139.0" mnemonicParsing="false" text="1" />
-      <Button layoutX="382.0" layoutY="191.0" mnemonicParsing="false" text="3" />
-      <Button layoutX="441.0" layoutY="139.0" mnemonicParsing="false" text="2" />
-      <Button layoutX="441.0" layoutY="191.0" mnemonicParsing="false" text="4" />
+      <Label layoutX="372.0" layoutY="48.0" text="SELECIONAR NÍVEL" />
+      <Button fx:id="level_1" layoutX="266.0" layoutY="217.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="1" />
+      <Button layoutX="314.0" layoutY="217.0" mnemonicParsing="false" text="2" />
+      <Button layoutX="266.0" layoutY="269.0" mnemonicParsing="false" text="3" />
+      <Button layoutX="314.0" layoutY="269.0" mnemonicParsing="false" text="4" />
+      <Button layoutX="393.0" layoutY="269.0" mnemonicParsing="false" text="7" />
+      <Button layoutX="393.0" layoutY="217.0" mnemonicParsing="false" text="5" />
+      <Button layoutX="443.0" layoutY="217.0" mnemonicParsing="false" text="6" />
+      <Button layoutX="443.0" layoutY="269.0" mnemonicParsing="false" text="8" />
+      <Button layoutX="539.0" layoutY="217.0" mnemonicParsing="false" text="9" />
+      <Button layoutX="539.0" layoutY="269.0" mnemonicParsing="false" text="11" />
+      <Button layoutX="598.0" layoutY="217.0" mnemonicParsing="false" text="10" />
+      <Button layoutX="598.0" layoutY="269.0" mnemonicParsing="false" text="12" />
+      <Button layoutX="42.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" />
+      <Label layoutX="266.0" layoutY="186.0" text="Facil" />
+      <Label layoutX="393.0" layoutY="186.0" text="Médio" />
+      <Label layoutX="535.0" layoutY="186.0" text="Difícil" />
    </children>
 </AnchorPane>
