@@ -17,7 +17,7 @@ import javafx.scene.control.Label;
  *
  * 
  */
-public class FXMLLoginController implements Initializable {
+public class FXMLRegistoController implements Initializable {
     
     @FXML
     private Label label;
@@ -33,4 +33,3 @@ public class FXMLLoginController implements Initializable {
     }    
     
 }
-
