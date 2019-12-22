@@ -111,9 +111,9 @@ public class FXMLJogoController implements Initializable
     @FXML private Button controlPause;
     @FXML private Label lTimer;
                 
-    private ArrayList<ArrayList<TextField>> areas = new ArrayList<ArrayList<TextField>>();
-    private ArrayList<ArrayList<TextField>> lines = new ArrayList<ArrayList<TextField>>(); 
-    private ArrayList<ArrayList<TextField>> columns = new ArrayList<ArrayList<TextField>>(); 
+    private ArrayList<ArrayList<TextField>> areas = new ArrayList<>();
+    private ArrayList<ArrayList<TextField>> lines = new ArrayList<>(); 
+    private ArrayList<ArrayList<TextField>> columns = new ArrayList<>(); 
 
     private int [][] solution = null;
     String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -140,7 +140,6 @@ public class FXMLJogoController implements Initializable
         
         // Se correu tudo bem o jogo terminou
         pane.setStyle("-fx-background-color: #2ecc71;");
-        
         
         
         String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
@@ -205,7 +204,7 @@ public class FXMLJogoController implements Initializable
     @FXML
     private void handlePauseGame(ActionEvent event)
     {
-        isGamePaused = isGamePaused ? false : true;
+        isGamePaused = !isGamePaused;
         controlPause.setText(isGamePaused ? "Continuar" : "Pausar");
 
         for (int a = 0; a < 6; a++) 
@@ -213,8 +212,7 @@ public class FXMLJogoController implements Initializable
             ArrayList<TextField> area = areas.get(a);
             for (int i = 0; i < 9; i++)
                 area.get(i).setVisible(!isGamePaused);
-        }
-        
+        }    
     }
     
     @FXML
@@ -280,6 +278,8 @@ public class FXMLJogoController implements Initializable
                 if(initial[a][i] != 0)
                 {
                     area.get(i).setText(String.valueOf(initial[a][i]));
+                    area.get(i).setStyle("-fx-font-weight: bold");
+                    
                     area.get(i).setEditable(false);
                 }
                 else

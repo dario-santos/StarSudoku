@@ -7,11 +7,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLLoginController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLLoginController">
     <children>
       <AnchorPane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #C4C4C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <Button fx:id="button" layoutX="106.0" layoutY="373.0" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="107.0" text="Sign In" AnchorPane.topAnchor="390.0">
+              <Button fx:id="button" layoutX="161.0" layoutY="391.0" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="107.0" text="Sign In" AnchorPane.topAnchor="391.0">
                <font>
                 <Font size="24.0" />
                </font>
