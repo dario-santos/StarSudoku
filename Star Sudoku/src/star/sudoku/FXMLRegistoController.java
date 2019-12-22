@@ -33,7 +33,7 @@ public class FXMLRegistoController implements Initializable
 /** começa aqui */
 
         if (userTextField.getText().isEmpty()){
-           AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Erro!", "Por favor insira o seu username!");
+           AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Por favor insira o seu username!");
            return;
         }
 

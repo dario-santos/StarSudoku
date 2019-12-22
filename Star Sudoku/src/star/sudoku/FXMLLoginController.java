@@ -30,7 +30,7 @@ public class FXMLLoginController implements Initializable {
 /** alertas de espaços em branco*/
 /** começa aqui */
        if (userTextField.getText().isEmpty()){
-          AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Erro!", "Insira o seu username!");
+          AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Insira o seu username!");
           return;
        }
        if (passwordTextField.getText().isEmpty()){
@@ -39,7 +39,20 @@ public class FXMLLoginController implements Initializable {
        }
 
 /** termina aqui */
-       
+
+/** 1 - falta ainda vereficar se o username consta da base de dados ou nao */
+
+/** 2 - falta vereficar a validade da password
+/** caso a password seja a incorreta
+    /**   if (!userTextField.getText().equals(userTextField.getText())){ 
+          Alert alert = new Alert(Alert.AlertType.ERROR);
+          alert.setTitle("Password Incorreta!");
+          alert.setHeadertext("Insira a password novamente por favor");
+
+          alert.showAndWait();
+          return;
+       }
+     */  
 
     }
     
