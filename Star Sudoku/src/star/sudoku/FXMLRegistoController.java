@@ -22,13 +22,33 @@ import javafx.scene.control.TextField;
  */
 public class FXMLRegistoController implements Initializable 
 {
-    @FXML private TextField userTextField;
-    @FXML private TextField passwordTextField;
+    @FXML private TextField userTextField; 
+    @FXML private TextField passwordTextField;  
     @FXML private TextField passwordConfirmTextField;
     
     @FXML
     private void handleButtonAction(ActionEvent event) 
     {
+/** eventos que acontecem quando se deixa um campo em branco/ por preencher e que são necessarios/ obrigatorios*/
+/** começa aqui */
+
+        if (userTextField.getText().isEmpty()){
+           AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Erro!", "Por favor insira o seu username!");
+           return;
+        }
+
+        if (passwordTextField.getText().isEmpty()){
+           AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Por favor insira a sua password!")
+           return;
+        }
+
+        if (passwordConfirmTextField.getText().isEmpty()){
+           AlertHelper.showAlert(Alert.AlertType.ERROR, confirm password, "Erro!", "Por favor insira a sua confirmação da password!");
+           return;
+        }
+
+/** termina aqui*/
+
         if(!passwordTextField.getText().equals(passwordConfirmTextField.getText()))
         {
             Alert alert = new Alert(AlertType.ERROR);

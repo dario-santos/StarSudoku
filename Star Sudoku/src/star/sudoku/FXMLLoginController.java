@@ -20,10 +20,26 @@ import javafx.scene.control.Label;
 public class FXMLLoginController implements Initializable {
     
     @FXML
-    private Label label;
+    private TextField userTextField;
+    @FXML
+    private TextField passwordTextField;
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
+
+/** alertas de espaços em branco*/
+/** começa aqui */
+       if (userTextField.getText().isEmpty()){
+          AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Erro!", "Insira o seu username!");
+          return;
+       }
+       if (passwordTextField.getText().isEmpty()){
+          AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Insira a sua password!");
+          return;
+       }
+
+/** termina aqui */
+       
 
     }
     
