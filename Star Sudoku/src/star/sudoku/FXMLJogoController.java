@@ -8,10 +8,14 @@ package star.sudoku;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -89,29 +93,36 @@ public class FXMLJogoController implements Initializable
     @FXML private TextField area6_9;
     
     @FXML private AnchorPane pane;
-                
-    private ArrayList<ArrayList<TextField>> areas = new ArrayList<ArrayList<TextField>>(); 
-    String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     
+    @FXML private Label lTimer;
+    long start = 0;
+                
+    private ArrayList<ArrayList<TextField>> areas = new ArrayList<ArrayList<TextField>>();
+    private ArrayList<ArrayList<TextField>> lines = new ArrayList<ArrayList<TextField>>(); 
+    private ArrayList<ArrayList<TextField>> columns = new ArrayList<ArrayList<TextField>>(); 
+
+    private int [][] solution = null;
+    String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
         for(int i = 0 ; i < 6 ; i++)
-            if(!isAreaCorrect(1))
+            if(!isAreaCorrect(i, areas) || !isLineCorrect(i, lines))
             {
                 pane.setStyle("-fx-background-color: #e74c3c;");
                 return;
             }
-            
-        // Verificar as linhas
+
         // Verificar as colunas
         
         // Se correu tudo bem o jogo terminou
+        pane.setStyle("-fx-background-color: #2ecc71;");
+
     }
     
     // Função para ver se uma area está correta
-    private boolean isAreaCorrect(int area)
+    private boolean isAreaCorrect(int area, ArrayList<ArrayList<TextField>> areas)
     {
         ArrayList<String> inputs = new ArrayList<>();
         
@@ -126,21 +137,48 @@ public class FXMLJogoController implements Initializable
     }
     
     // Função para ver se uma linha está correta
-    private void AreLinesCorrect()
+    private boolean isLineCorrect(int line, ArrayList<ArrayList<TextField>> lines)
     {
-       // Area 2_1 & 2 & 3 & 4 & Area 3_5 & 6 & 7 & 8 & 9 
+        ArrayList<String> inputs = new ArrayList<>();
         
+        for(TextField t : lines.get(line))
+            inputs.add(t.getText());
         
+        for(String s : numbers)
+            if(!inputs.contains(s))
+                return false;
         
+        return true;
     }
 
+    
+    private void loadSudokuBoard()
+    {
+        int[][] initial = GameLevels.getInitialBoard(1);
+        
+        
+        for(int a = 0 ; a < 6 ; a++)
+        {
+            ArrayList<TextField> area = areas.get(a);
+            for(int i = 0 ; i < 9 ; i++)
+            {
+                if(initial[a][i] != 0)
+                {
+                    area.get(i).setText(String.valueOf(initial[a][i]));
+                    area.get(i).setEditable(false);
+                }
+                else
+                    area.get(i).setText("");     
+            }
+        }
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        // TODO
         
         // Lista de Text fields para cada area
         ArrayList<TextField> area1 = new ArrayList<>();
@@ -210,13 +248,176 @@ public class FXMLJogoController implements Initializable
         area6.add(area6_8);
         area6.add(area6_9);
         
-        
         areas.add(area1);
         areas.add(area2);
         areas.add(area3);
         areas.add(area4);
         areas.add(area5);
         areas.add(area6);
+        
+        //lines
+        ArrayList<TextField> line1 = new ArrayList<>();
+        ArrayList<TextField> line2 = new ArrayList<>();
+        ArrayList<TextField> line3 = new ArrayList<>();
+        ArrayList<TextField> line4 = new ArrayList<>();
+        ArrayList<TextField> line5 = new ArrayList<>();
+        ArrayList<TextField> line6 = new ArrayList<>();
+        
+        line1.add(area5_1);
+        line1.add(area5_4);
+        line1.add(area5_3);
+        line1.add(area5_2);
+        line1.add(area6_9);
+        line1.add(area6_8);
+        line1.add(area6_7);
+        line1.add(area6_6);
+        line1.add(area6_5);
+        
+        line2.add(area1_1);
+        line2.add(area6_2);
+        line2.add(area6_3);
+        line2.add(area6_4);
+        line2.add(area5_5);
+        line2.add(area5_6);
+        line2.add(area5_7);
+        line2.add(area5_8);
+        line2.add(area5_9);
+        
+        line3.add(area1_2);
+        line3.add(area1_3);
+        line3.add(area1_4);
+        line3.add(area6_1);
+        line3.add(area4_5);
+        line3.add(area4_6);
+        line3.add(area4_7);
+        line3.add(area4_8);
+        line3.add(area4_9);
+
+        line4.add(area1_5);
+        line4.add(area1_6);
+        line4.add(area1_7);
+        line4.add(area1_8);
+        line4.add(area1_9);
+        line4.add(area3_1);
+        line4.add(area4_2);
+        line4.add(area4_3);
+        line4.add(area4_4);
+        
+        line5.add(area2_5);
+        line5.add(area2_6);
+        line5.add(area2_7);
+        line5.add(area2_8);
+        line5.add(area2_9);
+        line5.add(area3_2);
+        line5.add(area3_3);
+        line5.add(area3_4);
+        line5.add(area4_1);
+        
+        line6.add(area2_2);
+        line6.add(area2_3);
+        line6.add(area2_4);
+        line6.add(area3_5);
+        line6.add(area3_6);
+        line6.add(area3_7);
+        line6.add(area3_8);
+        line6.add(area3_9);
+        line6.add(area2_1);
+        
+        lines.add(line1);
+        lines.add(line2);
+        lines.add(line3);
+        lines.add(line4);
+        lines.add(line5);
+        lines.add(line6);
+        
+        /*
+        //collumns
+        ArrayList<TextField> column1 = new ArrayList<>();
+        ArrayList<TextField> column2 = new ArrayList<>();
+        ArrayList<TextField> column3 = new ArrayList<>();
+        ArrayList<TextField> column4 = new ArrayList<>();
+        ArrayList<TextField> column5 = new ArrayList<>();
+        ArrayList<TextField> column6 = new ArrayList<>();
+        
+        column1.add(area5_1);
+        column1.add(area5_4);
+        column1.add(area5_3);
+        column1.add(area5_2);
+        column1.add(area6_9);
+        column1.add(area6_8);
+        column1.add(area6_7);
+        column1.add(area6_6);
+        column1.add(area6_5);
+        
+        column2.add(area1_1);
+        column2.add(area6_2);
+        column2.add(area6_3);
+        column2.add(area6_4);
+        column2.add(area5_5);
+        column2.add(area5_6);
+        column2.add(area5_7);
+        column2.add(area5_8);
+        column2.add(area5_9);
+        
+        column3.add(area1_2);
+        column3.add(area1_3);
+        column3.add(area1_4);
+        column3.add(area6_1);
+        column3.add(area4_5);
+        column3.add(area4_6);
+        column3.add(area4_7);
+        column3.add(area4_8);
+        column3.add(area4_9);
+
+        column4.add(area1_5);
+        column4.add(area1_6);
+        column4.add(area1_7);
+        column4.add(area1_8);
+        column4.add(area1_9);
+        column4.add(area3_1);
+        column4.add(area4_2);
+        column4.add(area4_3);
+        column4.add(area4_4);
+        
+        column5.add(area2_5);
+        column5.add(area2_6);
+        column5.add(area2_7);
+        column5.add(area2_8);
+        column5.add(area2_9);
+        column5.add(area3_2);
+        column5.add(area3_3);
+        column5.add(area3_4);
+        column5.add(area4_1);
+        
+        column6.add(area2_2);
+        column6.add(area2_3);
+        column6.add(area2_4);
+        column6.add(area3_5);
+        column6.add(area3_6);
+        column6.add(area3_7);
+        column6.add(area3_8);
+        column6.add(area3_9);
+        column6.add(area2_1);
+        
+        columns.add(column1);
+        columns.add(column2);
+        columns.add(column3);
+        columns.add(column4);
+        columns.add(column5);
+        columns.add(column6);
+        */
+        
+        loadSudokuBoard();
+        Timer timer = new Timer();
+            timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() 
+            {
+                Platform.runLater(() -> 
+                {
+                    lTimer.setText(String.valueOf(start++));
+                });
+            }
+        }, 0, 1000);
     }    
-    
 }
