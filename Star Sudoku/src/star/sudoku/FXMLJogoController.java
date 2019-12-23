@@ -8,7 +8,6 @@ package star.sudoku;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -22,15 +21,19 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import star.sudoku.sqlite.AjudanteParaBD;
 import java.sql.ResultSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Paint;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 import star.sudoku.game.*;
 
@@ -42,97 +45,110 @@ import star.sudoku.game.*;
 public class FXMLJogoController implements Initializable 
 {
     // Area 1 - Laranja
-    @FXML private TextField area1_1;
-    @FXML private TextField area1_2;
-    @FXML private TextField area1_3;
-    @FXML private TextField area1_4;
-    @FXML private TextField area1_5;
-    @FXML private TextField area1_6;
-    @FXML private TextField area1_7;
-    @FXML private TextField area1_8;
-    @FXML private TextField area1_9;
+    @FXML private Polygon area1_1;  @FXML private Label text1_1;
+    @FXML private Polygon area1_2;  @FXML private Label text1_2;
+    @FXML private Polygon area1_3;  @FXML private Label text1_3;
+    @FXML private Polygon area1_4;  @FXML private Label text1_4;
+    @FXML private Polygon area1_5;  @FXML private Label text1_5;
+    @FXML private Polygon area1_6;  @FXML private Label text1_6;
+    @FXML private Polygon area1_7;  @FXML private Label text1_7;
+    @FXML private Polygon area1_8;  @FXML private Label text1_8;
+    @FXML private Polygon area1_9;  @FXML private Label text1_9;
     
     // Area 2 - Roxo
-    @FXML private TextField area2_1;
-    @FXML private TextField area2_2;
-    @FXML private TextField area2_3;
-    @FXML private TextField area2_4;
-    @FXML private TextField area2_5;
-    @FXML private TextField area2_6;
-    @FXML private TextField area2_7;
-    @FXML private TextField area2_8;
-    @FXML private TextField area2_9;
+    @FXML private Polygon area2_1;  @FXML private Label text2_1;
+    @FXML private Polygon area2_2;  @FXML private Label text2_2;
+    @FXML private Polygon area2_3;  @FXML private Label text2_3;
+    @FXML private Polygon area2_4;  @FXML private Label text2_4;
+    @FXML private Polygon area2_5;  @FXML private Label text2_5;
+    @FXML private Polygon area2_6;  @FXML private Label text2_6;
+    @FXML private Polygon area2_7;  @FXML private Label text2_7;
+    @FXML private Polygon area2_8;  @FXML private Label text2_8;
+    @FXML private Polygon area2_9;  @FXML private Label text2_9;
     
     // Area 3 - Azul
-    @FXML private TextField area3_1;
-    @FXML private TextField area3_2;
-    @FXML private TextField area3_3;
-    @FXML private TextField area3_4;
-    @FXML private TextField area3_5;
-    @FXML private TextField area3_6;
-    @FXML private TextField area3_7;
-    @FXML private TextField area3_8;
-    @FXML private TextField area3_9;
+    @FXML private Polygon area3_1;  @FXML private Label text3_1;
+    @FXML private Polygon area3_2;  @FXML private Label text3_2;
+    @FXML private Polygon area3_3;  @FXML private Label text3_3;
+    @FXML private Polygon area3_4;  @FXML private Label text3_4;
+    @FXML private Polygon area3_5;  @FXML private Label text3_5;
+    @FXML private Polygon area3_6;  @FXML private Label text3_6;
+    @FXML private Polygon area3_7;  @FXML private Label text3_7;
+    @FXML private Polygon area3_8;  @FXML private Label text3_8;
+    @FXML private Polygon area3_9;  @FXML private Label text3_9;
     
     // Area 4 - Amarelo
-    @FXML private TextField area4_1;
-    @FXML private TextField area4_2;
-    @FXML private TextField area4_3;
-    @FXML private TextField area4_4;
-    @FXML private TextField area4_5;
-    @FXML private TextField area4_6;
-    @FXML private TextField area4_7;
-    @FXML private TextField area4_8;
-    @FXML private TextField area4_9;
-    
+    @FXML private Polygon area4_1;  @FXML private Label text4_1;
+    @FXML private Polygon area4_2;  @FXML private Label text4_2;
+    @FXML private Polygon area4_3;  @FXML private Label text4_3;
+    @FXML private Polygon area4_4;  @FXML private Label text4_4;
+    @FXML private Polygon area4_5;  @FXML private Label text4_5;
+    @FXML private Polygon area4_6;  @FXML private Label text4_6;
+    @FXML private Polygon area4_7;  @FXML private Label text4_7;
+    @FXML private Polygon area4_8;  @FXML private Label text4_8;
+    @FXML private Polygon area4_9;  @FXML private Label text4_9;
+   
     // Area 5 - Rosa
-    @FXML private TextField area5_1;
-    @FXML private TextField area5_2;
-    @FXML private TextField area5_3;
-    @FXML private TextField area5_4;
-    @FXML private TextField area5_5;
-    @FXML private TextField area5_6;
-    @FXML private TextField area5_7;
-    @FXML private TextField area5_8;
-    @FXML private TextField area5_9;
+    @FXML private Polygon area5_1;  @FXML private Label text5_1;
+    @FXML private Polygon area5_2;  @FXML private Label text5_2;
+    @FXML private Polygon area5_3;  @FXML private Label text5_3;
+    @FXML private Polygon area5_4;  @FXML private Label text5_4;
+    @FXML private Polygon area5_5;  @FXML private Label text5_5;
+    @FXML private Polygon area5_6;  @FXML private Label text5_6;
+    @FXML private Polygon area5_7;  @FXML private Label text5_7;
+    @FXML private Polygon area5_8;  @FXML private Label text5_8;
+    @FXML private Polygon area5_9;  @FXML private Label text5_9;
     
     // Area 6 - Verde
-    @FXML private TextField area6_1;
-    @FXML private TextField area6_2;
-    @FXML private TextField area6_3;
-    @FXML private TextField area6_4;
-    @FXML private TextField area6_5;
-    @FXML private TextField area6_6;
-    @FXML private TextField area6_7;
-    @FXML private TextField area6_8;
-    @FXML private TextField area6_9;
+    @FXML private Polygon area6_1;  @FXML private Label text6_1;
+    @FXML private Polygon area6_2;  @FXML private Label text6_2;
+    @FXML private Polygon area6_3;  @FXML private Label text6_3;
+    @FXML private Polygon area6_4;  @FXML private Label text6_4;
+    @FXML private Polygon area6_5;  @FXML private Label text6_5;
+    @FXML private Polygon area6_6;  @FXML private Label text6_6;
+    @FXML private Polygon area6_7;  @FXML private Label text6_7;
+    @FXML private Polygon area6_8;  @FXML private Label text6_8;
+    @FXML private Polygon area6_9;  @FXML private Label text6_9;
+    
+    @FXML private Button button1;
+    @FXML private Button button2;
+    @FXML private Button button3;
+    @FXML private Button button4;
+    @FXML private Button button5;
+    @FXML private Button button6;
+    @FXML private Button button7;
+    @FXML private Button button8;
+    @FXML private Button button9;
     
     @FXML private AnchorPane pane;
     @FXML private Button controlPause;
+    @FXML private Button verificar;
     @FXML private Label lTimer;
     @FXML private Label lGameLevel;
-                
-    private ArrayList<ArrayList<TextField>> areas = new ArrayList<>();
-    private ArrayList<ArrayList<TextField>> lines = new ArrayList<>(); 
-    private ArrayList<ArrayList<TextField>> diagonalsr = new ArrayList<>(); 
-    private ArrayList<ArrayList<TextField>> diagonalsl = new ArrayList<>();
     
-    private ArrayList<TextField> selected = new ArrayList<>();
+    private ArrayList<ArrayList<Label>> labels = new ArrayList<>();
+    private ArrayList<ArrayList<Polygon>> areas = new ArrayList<>();
+    
+    
+    private Map<Polygon, Label> dic = new HashMap<>();
+    
+    private ArrayList<Polygon> selected = new ArrayList<>();
     
     private boolean isGamePaused = false;
+    private int [][] userBoard = null;
+    private int [][] solution = null;
     private int currentTime = 0;
+    
+    private Label selectedLabel = null;
+    Timer timer = new Timer();
     
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
-        for(int i = 0 ; i < 6 ; i++)
-            if(!GameLogic.isAreaCorrect(i, areas) 
-                    || !GameLogic.isLineCorrect(i, lines)
-                    || !GameLogic.isDiagonalLCorrect(i, diagonalsl) 
-                    || !GameLogic.isDiagonalLCorrect(i, diagonalsr))
+            if(!GameLogic.isBoardCorrect(userBoard, solution)) 
             {
                 pane.setStyle("-fx-background-color: #e74c3c;");
-                //return;
+                return;
             }
 
         // Se correu tudo bem o jogo terminou
@@ -171,6 +187,32 @@ public class FXMLJogoController implements Initializable
         else
             if(currentTime < bestTime)
                   AjudanteParaBD.updateGameLevelTime(idPontuancao, currentTime);
+        
+        timer.cancel();
+        
+        for (int a = 0; a < 6; a++) 
+        {
+            ArrayList<Polygon> area = areas.get(a);
+            
+            for (int i = 0; i < 9; i++)
+            {
+                area.get(i).setVisible(false);
+                dic.get(area.get(i)).setVisible(false);
+            }
+        }  
+        
+        verificar.setVisible(false);
+        controlPause.setVisible(false);
+        
+        button1.setVisible(false);
+        button2.setVisible(false);
+        button3.setVisible(false);
+        button4.setVisible(false);
+        button5.setVisible(false);
+        button6.setVisible(false);
+        button7.setVisible(false);
+        button8.setVisible(false);
+        button9.setVisible(false);
     }
     
     @FXML
@@ -181,10 +223,13 @@ public class FXMLJogoController implements Initializable
 
         for (int a = 0; a < 6; a++) 
         {
-            ArrayList<TextField> area = areas.get(a);
+            ArrayList<Polygon> area = areas.get(a);
             
             for (int i = 0; i < 9; i++)
+            {
                 area.get(i).setVisible(!isGamePaused);
+                dic.get(area.get(i)).setVisible(!isGamePaused);
+            }
         }    
     }
     
@@ -198,81 +243,88 @@ public class FXMLJogoController implements Initializable
             Scene scene = new Scene(root);
             Stage stage = (Stage) controlPause.getScene().getWindow();
             
+            timer.cancel();
             stage.setScene(scene);
             stage.show();
         } 
         catch (IOException ex) 
         {
             Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
+            
+            timer.cancel();
         }
+    }
+
+    @FXML
+    private void handleUpdateValue(ActionEvent event)
+    {
+        String text = ((Button) event.getSource()).getText();
+        
+        if(selectedLabel == null)
+            return;
+        
+        selectedLabel.setText(text);
+        
+        int i = selectedLabel.getId().charAt(selectedLabel.getId().length() - 1);
+        int a = selectedLabel.getId().split("text")[0].charAt(0);
+        
+        userBoard[a][i] = Integer.valueOf(text);
     }
     
     @FXML
-    private void handleHighLigh(ActionEvent event)
+    private void handleHighLigh(MouseEvent event)
     {
-        for(TextField t : selected)
+        for(Polygon t : selected)
         {
             String areaId = t.getId().split("_")[0];
-            String color = GameAesthetic.getAreaColor(areaId);
-            
-            t.setStyle("-fx-background-color: " + color);
+            String color = GameAesthetic.getAreaColor(areaId.charAt(areaId.length() - 1));
+
+            t.fillProperty().setValue(Paint.valueOf(color));
         }
         
         selected.clear();
         
-        TextField t = (TextField) event.getSource();
+        Polygon t = (Polygon) event.getSource();
+        t.fillProperty().setValue(Paint.valueOf("#bdc3c7"));
         
-        for(ArrayList<TextField> a : areas)
+        selectedLabel = dic.get(t);
+        
+        for(ArrayList<Polygon> a : areas)
             if(a.contains(t))
-                for(TextField tf : a)
+                for(Polygon tf : a)
                 {
                     selected.add(tf);
-                    tf.setStyle("-fx-background-color: #bdc3c7");
+                    tf.fillProperty().setValue(Paint.valueOf("#bdc3c7"));
                 }
-
-        for(ArrayList<TextField> dr : diagonalsr)
-            if(dr.contains(t))
-                for(TextField tf : dr)
-                {
-                    selected.add(tf);
-                    tf.setStyle("-fx-background-color: #bdc3c7");
-                }
-        
-        for(ArrayList<TextField> dl : diagonalsl)
-            if(dl.contains(t))
-                for(TextField tf : dl)
-                {
-                    selected.add(tf);
-                    tf.setStyle("-fx-background-color: #bdc3c7");
-                }
-        
     }
 
     private void loadSudokuBoard(int level)
     {
-        int[][] initial = GameLevels.getInitialBoard(level);
+        userBoard = GameLevels.getInitialBoard(level);
+        solution = GameLevels.getInitialBoard(level);
         
         for(int a = 0 ; a < 6 ; a++)
         {
-            ArrayList<TextField> area = areas.get(a);
+            ArrayList<Polygon> area = areas.get(a);
             for(int i = 0 ; i < 9 ; i++)
             {
-                if(initial[a][i] != 0)
+                if(userBoard[a][i] != 0)
                 {
-                    area.get(i).setText(String.valueOf(initial[a][i]));
-                    area.get(i).setStyle("-fx-font-weight: bold");
-                    
-                    area.get(i).setEditable(false);
+                    area.get(i).setDisable(true);
+                    dic.get(area.get(i)).setText(String.valueOf(userBoard[a][i]));
+                    dic.get(area.get(i)).setStyle("-fx-font-weight: bold");
+
                 }
                 else
-                    area.get(i).setText("");     
+                {
+                    dic.get(area.get(i)).setText("");
+                }
             }
         }
     }
     
     private void startClock()
     {
-        Timer timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() 
         {
             @Override
@@ -301,21 +353,18 @@ public class FXMLJogoController implements Initializable
         }, 0, 1000);
     }
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {   
         lGameLevel.setText("Nivel: " + SharedInformation.gameLevel);
         
         // Lista de Text fields para cada area
-        ArrayList<TextField> area1 = new ArrayList<>();
-        ArrayList<TextField> area2 = new ArrayList<>();
-        ArrayList<TextField> area3 = new ArrayList<>();
-        ArrayList<TextField> area4 = new ArrayList<>();
-        ArrayList<TextField> area5 = new ArrayList<>();
-        ArrayList<TextField> area6 = new ArrayList<>();
+        ArrayList<Polygon> area1 = new ArrayList<>();
+        ArrayList<Polygon> area2 = new ArrayList<>();
+        ArrayList<Polygon> area3 = new ArrayList<>();
+        ArrayList<Polygon> area4 = new ArrayList<>();
+        ArrayList<Polygon> area5 = new ArrayList<>();
+        ArrayList<Polygon> area6 = new ArrayList<>();
         
         area1.add(area1_1);
         area1.add(area1_2);
@@ -383,232 +432,66 @@ public class FXMLJogoController implements Initializable
         areas.add(area4);
         areas.add(area5);
         areas.add(area6);
+                
+        dic.put(area1_1, text1_1);
+        dic.put(area1_2, text1_2);
+        dic.put(area1_3, text1_3);
+        dic.put(area1_4, text1_4);
+        dic.put(area1_5, text1_5);
+        dic.put(area1_6, text1_6);
+        dic.put(area1_7, text1_7);
+        dic.put(area1_8, text1_8);
+        dic.put(area1_9, text1_9);
         
-        //lines
-        ArrayList<TextField> line1 = new ArrayList<>();
-        ArrayList<TextField> line2 = new ArrayList<>();
-        ArrayList<TextField> line3 = new ArrayList<>();
-        ArrayList<TextField> line4 = new ArrayList<>();
-        ArrayList<TextField> line5 = new ArrayList<>();
-        ArrayList<TextField> line6 = new ArrayList<>();
+        dic.put(area2_1, text2_1);
+        dic.put(area2_2, text2_2);
+        dic.put(area2_3, text2_3);
+        dic.put(area2_4, text2_4);
+        dic.put(area2_5, text2_5);
+        dic.put(area2_6, text2_6);
+        dic.put(area2_7, text2_7);
+        dic.put(area2_8, text2_8);
+        dic.put(area2_9, text2_9);
         
-        line1.add(area5_1);
-        line1.add(area5_4);
-        line1.add(area5_3);
-        line1.add(area5_2);
-        line1.add(area6_9);
-        line1.add(area6_8);
-        line1.add(area6_7);
-        line1.add(area6_6);
-        line1.add(area6_5);
+        dic.put(area3_1, text3_1);
+        dic.put(area3_2, text3_2);
+        dic.put(area3_3, text3_3);
+        dic.put(area3_4, text3_4);
+        dic.put(area3_5, text3_5);
+        dic.put(area3_6, text3_6);
+        dic.put(area3_7, text3_7);
+        dic.put(area3_8, text3_8);
+        dic.put(area3_9, text3_9);
         
-        line2.add(area1_1);
-        line2.add(area6_2);
-        line2.add(area6_3);
-        line2.add(area6_4);
-        line2.add(area5_5);
-        line2.add(area5_6);
-        line2.add(area5_7);
-        line2.add(area5_8);
-        line2.add(area5_9);
+        dic.put(area4_1, text4_1);
+        dic.put(area4_2, text4_2);
+        dic.put(area4_3, text4_3);
+        dic.put(area4_4, text4_4);
+        dic.put(area4_5, text4_5);
+        dic.put(area4_6, text4_6);
+        dic.put(area4_7, text4_7);
+        dic.put(area4_8, text4_8);
+        dic.put(area4_9, text4_9);
         
-        line3.add(area1_2);
-        line3.add(area1_3);
-        line3.add(area1_4);
-        line3.add(area6_1);
-        line3.add(area4_5);
-        line3.add(area4_6);
-        line3.add(area4_7);
-        line3.add(area4_8);
-        line3.add(area4_9);
-
-        line4.add(area1_5);
-        line4.add(area1_6);
-        line4.add(area1_7);
-        line4.add(area1_8);
-        line4.add(area1_9);
-        line4.add(area3_1);
-        line4.add(area4_2);
-        line4.add(area4_3);
-        line4.add(area4_4);
+        dic.put(area5_1, text5_1);
+        dic.put(area5_2, text5_2);
+        dic.put(area5_3, text5_3);
+        dic.put(area5_4, text5_4);
+        dic.put(area5_5, text5_5);
+        dic.put(area5_6, text5_6);
+        dic.put(area5_7, text5_7);
+        dic.put(area5_8, text5_8);
+        dic.put(area5_9, text5_9);   
         
-        line5.add(area2_5);
-        line5.add(area2_6);
-        line5.add(area2_7);
-        line5.add(area2_8);
-        line5.add(area2_9);
-        line5.add(area3_2);
-        line5.add(area3_3);
-        line5.add(area3_4);
-        line5.add(area4_1);
-        
-        line6.add(area2_2);
-        line6.add(area2_3);
-        line6.add(area2_4);
-        line6.add(area3_5);
-        line6.add(area3_6);
-        line6.add(area3_7);
-        line6.add(area3_8);
-        line6.add(area3_9);
-        line6.add(area2_1);
-        
-        lines.add(line1);
-        lines.add(line2);
-        lines.add(line3);
-        lines.add(line4);
-        lines.add(line5);
-        lines.add(line6);
-        
-        //diagonais direitas
-        ArrayList<TextField> diagonalr1 = new ArrayList<>();
-        ArrayList<TextField> diagonalr2 = new ArrayList<>();
-        ArrayList<TextField> diagonalr3 = new ArrayList<>();
-        ArrayList<TextField> diagonalr4 = new ArrayList<>();
-        ArrayList<TextField> diagonalr5 = new ArrayList<>();
-        ArrayList<TextField> diagonalr6 = new ArrayList<>();
-        
-        diagonalr1.add(area1_5);
-        diagonalr1.add(area1_6);
-        diagonalr1.add(area1_2);
-        diagonalr1.add(area1_3);
-        diagonalr1.add(area1_1);
-        diagonalr1.add(area6_2);
-        diagonalr1.add(area6_5);
-        diagonalr1.add(area6_6);
-        diagonalr1.add(area6_7);
-        
-        diagonalr2.add(area2_5);
-        diagonalr2.add(area1_7);
-        diagonalr2.add(area1_8);
-        diagonalr2.add(area1_4);
-        diagonalr2.add(area6_1);
-        diagonalr2.add(area6_3);
-        diagonalr2.add(area6_4);
-        diagonalr2.add(area6_8);
-        diagonalr2.add(area6_9);
-        
-        diagonalr3.add(area2_2);
-        diagonalr3.add(area2_6);
-        diagonalr3.add(area2_7);
-        diagonalr3.add(area1_9);
-        diagonalr3.add(area5_5);
-        diagonalr3.add(area5_6);
-        diagonalr3.add(area5_2);
-        diagonalr3.add(area5_3);
-        diagonalr3.add(area5_1);
-
-        diagonalr4.add(area2_1);
-        diagonalr4.add(area2_3);
-        diagonalr4.add(area2_4);
-        diagonalr4.add(area2_8);
-        diagonalr4.add(area2_9);
-        diagonalr4.add(area4_5);
-        diagonalr4.add(area5_7);
-        diagonalr4.add(area5_8);
-        diagonalr4.add(area5_4);
-        
-        diagonalr5.add(area3_5);
-        diagonalr5.add(area3_6);
-        diagonalr5.add(area3_2);
-        diagonalr5.add(area3_3);
-        diagonalr5.add(area3_1);
-        diagonalr5.add(area4_2);
-        diagonalr5.add(area4_6);
-        diagonalr5.add(area4_7);
-        diagonalr5.add(area5_9);
-        
-        diagonalr6.add(area3_7);
-        diagonalr6.add(area3_8);
-        diagonalr6.add(area3_9);
-        diagonalr6.add(area3_4);
-        diagonalr6.add(area5_1);
-        diagonalr6.add(area5_3);
-        diagonalr6.add(area5_4);
-        diagonalr6.add(area5_8);
-        diagonalr6.add(area5_9);
-        
-        diagonalsr.add(diagonalr1);
-        diagonalsr.add(diagonalr2);
-        diagonalsr.add(diagonalr3);
-        diagonalsr.add(diagonalr4);
-        diagonalsr.add(diagonalr5);
-        diagonalsr.add(diagonalr6);
-        
-        //diagonais esquerdas
-        ArrayList<TextField> diagonall1 = new ArrayList<>();
-        ArrayList<TextField> diagonall2 = new ArrayList<>();
-        ArrayList<TextField> diagonall3 = new ArrayList<>();
-        ArrayList<TextField> diagonall4 = new ArrayList<>();
-        ArrayList<TextField> diagonall5 = new ArrayList<>();
-        ArrayList<TextField> diagonall6 = new ArrayList<>();
-        
-        diagonall1.add(area2_1);
-        diagonall1.add(area2_2);
-        diagonall1.add(area2_3);
-        diagonall1.add(area2_5);
-        diagonall1.add(area2_6);
-        diagonall1.add(area1_5);
-        diagonall1.add(area1_6);
-        diagonall1.add(area1_7);
-        diagonall1.add(area1_2);
-        
-        diagonall2.add(area3_5);
-        diagonall2.add(area2_4);
-        diagonall2.add(area2_7);
-        diagonall2.add(area2_8);
-        diagonall2.add(area1_8);
-        diagonall2.add(area1_9);
-        diagonall2.add(area1_3);
-        diagonall2.add(area1_4);
-        diagonall2.add(area1_1);
-        
-        diagonall3.add(area3_7);
-        diagonall3.add(area3_6);
-        diagonall3.add(area2_9);
-        diagonall3.add(area3_2);
-        diagonall3.add(area6_1);
-        diagonall3.add(area6_2);
-        diagonall3.add(area6_3);
-        diagonall3.add(area6_5);
-        diagonall3.add(area6_6);
-
-        diagonall4.add(area3_8);
-        diagonall4.add(area3_9);
-        diagonall4.add(area3_3);
-        diagonall4.add(area3_4);
-        diagonall4.add(area3_1);
-        diagonall4.add(area6_4);
-        diagonall4.add(area5_5);
-        diagonall4.add(area6_7);
-        diagonall4.add(area6_8);
-        
-        diagonall5.add(area4_1);
-        diagonall5.add(area4_2);
-        diagonall5.add(area4_3);
-        diagonall5.add(area4_5);
-        diagonall5.add(area4_6);
-        diagonall5.add(area5_6);
-        diagonall5.add(area5_7);
-        diagonall5.add(area6_9);
-        diagonall5.add(area5_2);
-        
-        diagonall6.add(area4_4);
-        diagonall6.add(area4_7);
-        diagonall6.add(area4_8);
-        diagonall6.add(area4_9);
-        diagonall6.add(area5_8);
-        diagonall6.add(area5_9);
-        diagonall6.add(area5_3);
-        diagonall6.add(area5_4);
-        diagonall6.add(area5_1);
-        
-        diagonalsl.add(diagonall1);
-        diagonalsl.add(diagonall2);
-        diagonalsl.add(diagonall3);
-        diagonalsl.add(diagonall4);
-        diagonalsl.add(diagonall5);
-        diagonalsl.add(diagonall6);
-        
+        dic.put(area6_1, text6_1);
+        dic.put(area6_2, text6_2);
+        dic.put(area6_3, text6_3);
+        dic.put(area6_4, text6_4);
+        dic.put(area6_5, text6_5);
+        dic.put(area6_6, text6_6);
+        dic.put(area6_7, text6_7);
+        dic.put(area6_8, text6_8);
+        dic.put(area6_9, text6_9);
         
         loadSudokuBoard(SharedInformation.gameLevel);
         

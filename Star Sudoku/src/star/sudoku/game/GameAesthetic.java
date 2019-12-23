@@ -6,19 +6,19 @@ package star.sudoku.game;
  */
 public class GameAesthetic 
 {
-    public static String getAreaColor(String id)
+    public static String getAreaColor(char id)
     {
-        if(id.equals("1"))
+        if(id == '1')
             return "#F39005";
-        if(id.equals("2"))
+        if(id == '2')
             return "#ED98CD";
-        if(id.equals("3"))
+        if(id == '3')
             return "#C0EDFF";
-        if(id.equals("4"))
+        if(id == '4')
             return "#FDF779";
-        if(id.equals("5"))
+        if(id == '5')
             return "#FD8092";
-        if(id.equals("6"))
+        if(id == '6')
             return "#D8ED6E";
         return "";  
     }

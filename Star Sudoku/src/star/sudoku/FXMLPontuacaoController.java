@@ -52,6 +52,7 @@ public class FXMLPontuacaoController implements Initializable
             Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     /**
      * Initializes the controller class.
      */
