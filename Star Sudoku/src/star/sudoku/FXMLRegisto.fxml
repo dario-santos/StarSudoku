@@ -6,33 +6,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLRegistoController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLRegistoController">
     <children>
       <AnchorPane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #C4C4C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-              <Button layoutX="106.0" layoutY="373.0" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="107.0" text="Sign In" AnchorPane.topAnchor="375.0">
+            <Label layoutX="106.0" layoutY="111.0" minHeight="16" minWidth="69" text="User" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userTextField" layoutX="106.0" layoutY="155.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira o Username" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="140.0" />            
+            <Label layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="Password" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="190.0">
+                <font>
+                  <Font size="24.0" />
+                </font>
+            </Label>
+            <TextField fx:id="passwordTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira a Password" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="230.0" />
+            <Label layoutX="111.0" layoutY="283.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="196.0" text="Confirm Password" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="280.0">
+                <font>
+                  <Font size="24.0" />
+                </font>
+            </Label>
+            <TextField fx:id="passwordConfirmTextField" layoutX="106.0" layoutY="318.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira de Novo a Password" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="320.0" />
+              <Button layoutX="106.0" layoutY="373.0" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="107.0" text="Sign In" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="400.0">
                <font>
                 <Font size="24.0" />
                </font>
-            </Button>            
-            <Label layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="Password" AnchorPane.topAnchor="190.0">
-                <font>
-                  <Font size="24.0" />
-                </font>
-            </Label>
-            <Label layoutX="111.0" layoutY="283.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="196.0" text="Confirm Password" AnchorPane.topAnchor="280.0">
-                <font>
-                  <Font size="24.0" />
-                </font>
-            </Label>
-            <TextField fx:id="passwordTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="202.0" AnchorPane.topAnchor="230.0" />
-            <TextField fx:id="passwordConfirmTextField" layoutX="106.0" layoutY="318.0" prefHeight="35.0" prefWidth="202.0" AnchorPane.topAnchor="320.0" />
-            <Label layoutX="106.0" layoutY="111.0" minHeight="16" minWidth="69" text="User" AnchorPane.topAnchor="100.0">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TextField fx:id="userTextField" layoutX="106.0" layoutY="155.0" prefHeight="35.0" prefWidth="202.0" AnchorPane.topAnchor="140.0" />
+            </Button>
          </children>
       </AnchorPane>
     </children>

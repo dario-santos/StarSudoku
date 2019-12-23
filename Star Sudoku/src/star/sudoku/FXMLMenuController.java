@@ -23,6 +23,18 @@ public class FXMLMenuController implements Initializable
 {
     @FXML
     private Button buttonJogar;
+
+    @FXML
+    private Button buttonOpcoes;
+
+    @FXML
+    private Button buttonPerfil;
+
+    @FXML
+    private Button buttonPontuacao;
+
+    @FXML
+    private Button buttonInfo;
     
     @FXML
     private void handleJogarAction(ActionEvent event) 
