@@ -32,6 +32,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import star.sudoku.game.*;
 
 /**
  * FXML Controller class
@@ -107,49 +108,41 @@ public class FXMLJogoController implements Initializable
     @FXML private TextField area6_9;
     
     @FXML private AnchorPane pane;
-    
     @FXML private Button controlPause;
     @FXML private Label lTimer;
     @FXML private Label lGameLevel;
-    
                 
     private ArrayList<ArrayList<TextField>> areas = new ArrayList<>();
     private ArrayList<ArrayList<TextField>> lines = new ArrayList<>(); 
     private ArrayList<ArrayList<TextField>> diagonalsr = new ArrayList<>(); 
     private ArrayList<ArrayList<TextField>> diagonalsl = new ArrayList<>();
     
-    
     private ArrayList<TextField> selected = new ArrayList<>();
-
-    private int [][] solution = null;
-    String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-    
     
     private boolean isGamePaused = false;
-    
-    private int start = 0;
-    
-    private int gameLevel = 0;
-    private int idUser = 0;
+    private int currentTime = 0;
     
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
         for(int i = 0 ; i < 6 ; i++)
-            if(!isAreaCorrect(i, areas) || !isLineCorrect(i, lines))
+            if(!GameLogic.isAreaCorrect(i, areas) 
+                    || !GameLogic.isLineCorrect(i, lines)
+                    || !GameLogic.isDiagonalLCorrect(i, diagonalsl) 
+                    || !GameLogic.isDiagonalLCorrect(i, diagonalsr))
             {
                 pane.setStyle("-fx-background-color: #e74c3c;");
-                //return;
+                return;
             }
 
-        // Verificar as colunas
-        
         // Se correu tudo bem o jogo terminou
         pane.setStyle("-fx-background-color: #2ecc71;");
         
         
+        
+        // O utilizador já jogou este nível antes?
         String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
-                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + idUser +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + gameLevel +  ";";
+                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + SharedInformation.idUser +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
         
         boolean exists = false;
         int bestTime = 0;
@@ -169,42 +162,15 @@ public class FXMLJogoController implements Initializable
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        // ----------------------------
+        
+        
+        // Create or Update user time
         if(!exists)
-        {
-            sql = "INSERT INTO "+ AjudanteParaBD.TABELA_PONTUACAO + "(" + AjudanteParaBD.PONTUACAO_NIVEL + "," + AjudanteParaBD.PONTUACAO_TEMPO + "," + AjudanteParaBD.PONTUACAO_IDUTILIZADOR + ") VALUES(?,?,?)";
-
-            try (Connection conn = AjudanteParaBD.ConnectToDB())
-            {
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                pstmt.setInt(1, gameLevel);
-                pstmt.setInt(2, start);
-                pstmt.setInt(3, idUser);
-                pstmt.executeUpdate();
-            } catch (SQLException e) 
-            {
-                System.out.println(e.getMessage());
-            }
-        }
+            AjudanteParaBD.insertPontuation(SharedInformation.gameLevel, 
+                    currentTime, SharedInformation.idUser);
         else
-        {
-            // Todo: Update
-            if(start < bestTime)
-            {
-                sql = "UPDATE " + AjudanteParaBD.TABELA_PONTUACAO + " SET " + AjudanteParaBD.PONTUACAO_TEMPO + " = ? "
-                   + " WHERE " + AjudanteParaBD.PONTUACAO_ID + " = ?";
-                
-                 try (Connection conn = AjudanteParaBD.ConnectToDB();
-                    PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                    // set the corresponding param
-                    pstmt.setInt(1, start);
-                    pstmt.setInt(2, idPontuancao);
-                    pstmt.executeUpdate();
-                } catch (SQLException e) {
-                    System.out.println("Update: " + e.getMessage());
-                }
-            }
-        }
+            if(currentTime < bestTime)
+                  AjudanteParaBD.updateGameLevelTime(idPontuancao, currentTime);
     }
     
     @FXML
@@ -216,6 +182,7 @@ public class FXMLJogoController implements Initializable
         for (int a = 0; a < 6; a++) 
         {
             ArrayList<TextField> area = areas.get(a);
+            
             for (int i = 0; i < 9; i++)
                 area.get(i).setVisible(!isGamePaused);
         }    
@@ -246,7 +213,7 @@ public class FXMLJogoController implements Initializable
         for(TextField t : selected)
         {
             String areaId = t.getId().split("_")[0];
-            String color = getColor(areaId);
+            String color = GameAesthetic.getAreaColor(areaId);
             
             t.setStyle("-fx-background-color: " + color);
         }
@@ -280,58 +247,10 @@ public class FXMLJogoController implements Initializable
                 }
         
     }
-    
-    private String getColor(String id)
-    {
-        if(id.equals("1"))
-            return "#F39005";
-        if(id.equals("2"))
-            return "#ED98CD";
-        if(id.equals("3"))
-            return "#C0EDFF";
-        if(id.equals("4"))
-            return "#FDF779";
-        if(id.equals("5"))
-            return "#FD8092";
-        if(id.equals("6"))
-            return "#D8ED6E";
-        return "";  
-    }
-    
-    // Função para ver se uma area está correta
-    private boolean isAreaCorrect(int area, ArrayList<ArrayList<TextField>> areas)
-    {
-        ArrayList<String> inputs = new ArrayList<>();
-        
-        for(TextField t : areas.get(area))
-            inputs.add(t.getText());
-        
-        for(String s : numbers)
-            if(!inputs.contains(s))
-                return false;
-        
-        return true;
-    }
-    
-    // Função para ver se uma linha está correta
-    private boolean isLineCorrect(int line, ArrayList<ArrayList<TextField>> lines)
-    {
-        ArrayList<String> inputs = new ArrayList<>();
-        
-        for(TextField t : lines.get(line))
-            inputs.add(t.getText());
-        
-        for(String s : numbers)
-            if(!inputs.contains(s))
-                return false;
-        
-        return true;
-    }
-    
+
     private void loadSudokuBoard(int level)
     {
         int[][] initial = GameLevels.getInitialBoard(level);
-        
         
         for(int a = 0 ; a < 6 ; a++)
         {
@@ -351,16 +270,44 @@ public class FXMLJogoController implements Initializable
         }
     }
     
+    private void startClock()
+    {
+        Timer timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() 
+        {
+            @Override
+            public void run() 
+            {
+                Platform.runLater(() -> {
+                    if(isGamePaused)
+                        return;
+                    
+                    currentTime++;
+                    int hours = (int)   currentTime / 3600;
+                    int minutes = (int) (currentTime % 3600) / 60;
+                    int seconds = (int) currentTime % 60;
+
+                    String timeLeftFormatted;
+                    if(hours == 0 && minutes == 0)
+                        timeLeftFormatted = String.format(Locale.getDefault(), "00m%02ds", seconds);
+                    else if (hours == 0)
+                        timeLeftFormatted = String.format(Locale.getDefault(), "%02dm%02ds", minutes, seconds);
+                    else
+                        timeLeftFormatted = String.format(Locale.getDefault(),"%02dh%02dm%02ds",hours, minutes, seconds);
+                    
+                    lTimer.setText(timeLeftFormatted);
+                });
+            }
+        }, 0, 1000);
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
-    {
-        idUser = SharedInformation.idUser;
-        gameLevel = SharedInformation.gameLevel;
-        
-        lGameLevel.setText("Nivel: " + gameLevel);
+    {   
+        lGameLevel.setText("Nivel: " + SharedInformation.gameLevel);
         
         // Lista de Text fields para cada area
         ArrayList<TextField> area1 = new ArrayList<>();
@@ -663,42 +610,8 @@ public class FXMLJogoController implements Initializable
         diagonalsl.add(diagonall6);
         
         
-        loadSudokuBoard(gameLevel);
+        loadSudokuBoard(SharedInformation.gameLevel);
         
-        // Clock
-        Timer timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() 
-        {
-            @Override
-            public void run() 
-            {
-                Platform.runLater(() -> 
-                {
-                    if(isGamePaused)
-                        return;
-                    
-                    start++;
-                    int hours = (int)   start / 3600;
-                    int minutes = (int) (start % 3600) / 60;
-                    int seconds = (int) start % 60;
-
-                    String timeLeftFormatted;
-                    if(hours == 0 && minutes == 0)
-                    {
-                        timeLeftFormatted = String.format(Locale.getDefault(), "00m%02ds", seconds);
-                    }
-                    else if (hours == 0)
-                    {
-                        timeLeftFormatted = String.format(Locale.getDefault(), "%02dm%02ds", minutes, seconds);
-                    }
-                    else
-                    {
-                        timeLeftFormatted = String.format(Locale.getDefault(),"%02dh%02dm%02ds",hours, minutes, seconds);
-                    }
-                    lTimer.setText(timeLeftFormatted);
-                });
-            }
-        }, 0, 1000);
-        
+        startClock();
     }    
 }

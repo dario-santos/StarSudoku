@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 
 /**
@@ -30,12 +31,12 @@ public class FXMLLoginController implements Initializable {
 /** alertas de espaços em branco*/
 /** começa aqui */
        if (userTextField.getText().isEmpty()){
-          AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Insira o seu username!");
+          //AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Insira o seu username!");
           return;
        }
        if (passwordTextField.getText().isEmpty()){
-          AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Insira a sua password!");
-          return;
+           //AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Insira a sua password!");
+           return;
        }
 
 /** termina aqui */

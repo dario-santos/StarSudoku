@@ -33,17 +33,17 @@ public class FXMLRegistoController implements Initializable
 /** começa aqui */
 
         if (userTextField.getText().isEmpty()){
-           AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Por favor insira o seu username!");
+          // AlertHelper.showAlert(Alert.AlertType.ERROR, user, "Erro!", "Por favor insira o seu username!");
            return;
         }
 
         if (passwordTextField.getText().isEmpty()){
-           AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Por favor insira a sua password!")
+           //AlertHelper.showAlert(Alert.AlertType.ERROR, password, "Erro!", "Por favor insira a sua password!")
            return;
         }
 
         if (passwordConfirmTextField.getText().isEmpty()){
-           AlertHelper.showAlert(Alert.AlertType.ERROR, confirm password, "Erro!", "Por favor insira a sua confirmação da password!");
+           //AlertHelper.showAlert(Alert.AlertType.ERROR, confirm password, "Erro!", "Por favor insira a sua confirmação da password!");
            return;
         }
 

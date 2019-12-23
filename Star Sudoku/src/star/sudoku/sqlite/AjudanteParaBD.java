@@ -135,4 +135,40 @@ public class AjudanteParaBD
             System.out.println(e.getMessage());
         }
     }
+    
+    public static void insertPontuation(int gameLevel, int time, int idUser)
+    {
+        String sql = "INSERT INTO " + AjudanteParaBD.TABELA_PONTUACAO + "(" 
+                + AjudanteParaBD.PONTUACAO_NIVEL + "," 
+                + AjudanteParaBD.PONTUACAO_TEMPO + "," 
+                + AjudanteParaBD.PONTUACAO_IDUTILIZADOR + ") VALUES(?,?,?)";
+
+        try (Connection conn = AjudanteParaBD.ConnectToDB()) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, gameLevel);
+            pstmt.setInt(2, time);
+            pstmt.setInt(3, idUser);
+            pstmt.executeUpdate();
+        } catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.insertPontuation: " + e.getMessage());
+        }
+    }
+    
+    public static void updateGameLevelTime(int idPontuacao, int time) 
+    {
+        String sql = "UPDATE " + AjudanteParaBD.TABELA_PONTUACAO + " SET " + AjudanteParaBD.PONTUACAO_TEMPO + " = ? "
+                + " WHERE " + AjudanteParaBD.PONTUACAO_ID + " = ?";
+
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // set the corresponding param
+            pstmt.setInt(1, time);
+            pstmt.setInt(2, idPontuacao);
+            pstmt.executeUpdate();
+        } catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.updateGameLevelTime: " + e.getMessage());
+        }
+    }
 }
