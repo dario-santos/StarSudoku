@@ -142,7 +142,7 @@ public class FXMLJogoController implements Initializable
         
         // O utilizador já jogou este nível antes?
         String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
-                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + SharedInformation.idUser +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
+                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + SharedInformation.user.getId() +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
         
         boolean exists = false;
         int bestTime = 0;
@@ -167,7 +167,7 @@ public class FXMLJogoController implements Initializable
         // Create or Update user time
         if(!exists)
             AjudanteParaBD.insertPontuation(SharedInformation.gameLevel, 
-                    currentTime, SharedInformation.idUser);
+                    currentTime, SharedInformation.user.getId());
         else
             if(currentTime < bestTime)
                   AjudanteParaBD.updateGameLevelTime(idPontuancao, currentTime);

@@ -171,4 +171,28 @@ public class AjudanteParaBD
             System.out.println("AjudanteParaBD.updateGameLevelTime: " + e.getMessage());
         }
     }
+    
+    public static Utilizador selectUserFromUtilizador(String username, String password)
+    {
+        String sql = "SELECT " + UTILIZADOR_ID + "," + UTILIZADOR_NOME + " FROM " + TABELA_UTILIZADOR 
+                + " WHERE " + UTILIZADOR_NOME + " = " + username + " and " 
+                + UTILIZADOR_PALAVRAPASSE + " = " + password + ";";
+        
+        try (Connection conn = ConnectToDB())
+        {
+            Statement stmt  = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            
+            if(!rs.next())
+                return null;
+            
+            Utilizador u = new Utilizador(rs.getInt(UTILIZADOR_ID), rs.getString(UTILIZADOR_NOME));
+            return u;
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.selectUserFromUtilizador: " + e.getMessage());
+            return null;
+        }
+    }
 }

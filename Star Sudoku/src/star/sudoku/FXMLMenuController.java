@@ -42,7 +42,6 @@ public class FXMLMenuController implements Initializable
         Parent root;
         try 
         {
-            SharedInformation.idUser = 1;
             root = FXMLLoader.load(getClass().getResource("FXMLSelecionarNivel.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) buttonJogar.getScene().getWindow();
