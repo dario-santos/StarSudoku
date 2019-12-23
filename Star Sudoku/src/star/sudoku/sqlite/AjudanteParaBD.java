@@ -211,8 +211,7 @@ public class AjudanteParaBD
     
     public static ArrayList<Pontuacao> selectNPontuacao(int n)
     {
-        String sql = "SELECT " + PONTUACAO_NIVEL + " , " + PONTUACAO_TEMPO + " , " + PONTUACAO_UTILIZADOR 
-                + " FROM " + TABELA_PONTUACAO 
+        String sql = "SELECT * FROM " + TABELA_PONTUACAO 
                 + " ORDER BY " + PONTUACAO_ID + " DESC LIMIT ?;;";
         
         try (Connection conn = AjudanteParaBD.ConnectToDB();
@@ -226,7 +225,10 @@ public class AjudanteParaBD
             ArrayList<Pontuacao> pontuacoes = new ArrayList<>();
             
             while(rs.next())
-                pontuacoes.add(new Pontuacao(rs.getString(PONTUACAO_UTILIZADOR), rs.getInt(PONTUACAO_NIVEL), rs.getInt(PONTUACAO_TEMPO)));
+                pontuacoes.add(new Pontuacao(rs.getInt(PONTUACAO_ID)
+                        , rs.getString(PONTUACAO_UTILIZADOR)
+                        , rs.getInt(PONTUACAO_NIVEL)
+                        , rs.getInt(PONTUACAO_TEMPO)));
             
             return pontuacoes;
         } 
@@ -237,5 +239,63 @@ public class AjudanteParaBD
         }
     }
     
+    public static Pontuacao selectPontuacaoByUserAndLevel(String username, int gameLevel)
+    {
+        String sql = "SELECT * FROM " + AjudanteParaBD.TABELA_PONTUACAO 
+                     + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR + " = ? "
+                     + " and " + AjudanteParaBD.PONTUACAO_NIVEL + " = ?;";
+        
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) 
+        {
+            pstmt.setString(1, username);
+            pstmt.setInt(2, gameLevel);
+        
+            ResultSet rs = pstmt.executeQuery();
+            
+            if(rs.next())
+                return new Pontuacao(rs.getInt(PONTUACAO_ID)
+                        , username
+                        , rs.getInt(PONTUACAO_NIVEL)
+                        , rs.getInt(PONTUACAO_TEMPO));
+            
+            AjudanteParaBD.DisconnectFromDB(conn);
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.selectNPontuacao: " + e.getMessage());
+        }
+        
+        return null;
+    }
+    
+    public static ArrayList<Pontuacao> selectAllPontuacaoByUser(String username)
+    {
+        String sql = "SELECT * FROM " + AjudanteParaBD.TABELA_PONTUACAO 
+                     + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR + " = ?;";
+        
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) 
+        {
+            pstmt.setString(1, username);
+        
+            ResultSet rs = pstmt.executeQuery();
+            ArrayList<Pontuacao> pontuacoes = new ArrayList<>();
+            
+            while(rs.next())
+                pontuacoes.add(new Pontuacao(rs.getInt(PONTUACAO_ID)
+                        , username
+                        , rs.getInt(PONTUACAO_NIVEL)
+                        , rs.getInt(PONTUACAO_TEMPO)));
+            
+            return pontuacoes;
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.selectAllPontuacaoByUser: " + e.getMessage());
+        }
+        
+        return null;
+    }
     
 }

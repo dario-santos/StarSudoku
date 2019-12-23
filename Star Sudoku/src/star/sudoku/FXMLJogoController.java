@@ -7,9 +7,6 @@ package star.sudoku;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -23,7 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import star.sudoku.sqlite.AjudanteParaBD;
-import java.sql.ResultSet;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -36,6 +32,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 import star.sudoku.game.*;
+import star.sudoku.sqlite.Pontuacao;
 
 /**
  * FXML Controller class
@@ -129,64 +126,48 @@ public class FXMLJogoController implements Initializable
     private ArrayList<ArrayList<Label>> labels = new ArrayList<>();
     private ArrayList<ArrayList<Polygon>> areas = new ArrayList<>();
     
-    
     private Map<Polygon, Label> dic = new HashMap<>();
     
-    private ArrayList<Polygon> selected = new ArrayList<>();
+    
+    private Label selectedLabel = null;
+    private Polygon selectedPolygon = null;
     
     private boolean isGamePaused = false;
     private int [][] userBoard = null;
     private int [][] solution = null;
     private int currentTime = 0;
     
-    private Label selectedLabel = null;
     Timer timer = new Timer();
     
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
-            if(!GameLogic.isBoardCorrect(userBoard, solution)) 
-            {
-                pane.setStyle("-fx-background-color: #e74c3c;");
-                return;
-            }
-
-        // Se correu tudo bem o jogo terminou
-        pane.setStyle("-fx-background-color: #2ecc71;");
-        
-        
-        
-        // O utilizador já jogou este nível antes?
-        String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
-                        + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR +  " = " + SharedInformation.user.getUsername() +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
-        
-        boolean exists = false;
-        int bestTime = 0;
-        int idPontuancao = 0;
-        
-        try (Connection conn = AjudanteParaBD.ConnectToDB())
+        if(!GameLogic.isBoardCorrect(userBoard, solution)) 
         {
-            Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            
-            if(rs.next())
-            {
-                exists = true;
-                bestTime = rs.getInt(AjudanteParaBD.PONTUACAO_TEMPO);
-                idPontuancao = rs.getInt(AjudanteParaBD.PONTUACAO_ID);
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            pane.setStyle("-fx-background-color: #e74c3c;");
+            return;
         }
         
-        
+        Pontuacao pont = AjudanteParaBD.selectPontuacaoByUserAndLevel(
+                SharedInformation.user.getUsername(), SharedInformation.gameLevel);
+       
         // Create or Update user time
-        if(!exists)
-            AjudanteParaBD.insertPontuation(SharedInformation.gameLevel, 
-                    currentTime, SharedInformation.user.getUsername());
+        if(pont == null)
+        {
+            AjudanteParaBD.insertPontuation(SharedInformation.gameLevel,currentTime, SharedInformation.user.getUsername());
+        }
         else
-            if(currentTime < bestTime)
-                  AjudanteParaBD.updateGameLevelTime(idPontuancao, currentTime);
+        {
+            if(currentTime < pont.getTempo())
+                  AjudanteParaBD.updateGameLevelTime(pont.getId(), currentTime);
+        }
+        
+        endGame();
+    }
+    
+    private void endGame()
+    {
+        pane.setStyle("-fx-background-color: #2ecc71;");
         
         timer.cancel();
         
@@ -274,28 +255,19 @@ public class FXMLJogoController implements Initializable
     @FXML
     private void handleHighLigh(MouseEvent event)
     {
-        for(Polygon t : selected)
+        if(selectedPolygon != null)
         {
-            String areaId = t.getId().split("_")[0];
+            String areaId = selectedPolygon.getId().split("_")[0];
             String color = GameAesthetic.getAreaColor(areaId.charAt(areaId.length() - 1));
 
-            t.fillProperty().setValue(Paint.valueOf(color));
+            selectedPolygon.fillProperty().setValue(Paint.valueOf(color));
         }
         
-        selected.clear();
+        Polygon newSelecetdPolygon = (Polygon) event.getSource();
+        newSelecetdPolygon.fillProperty().setValue(Paint.valueOf("#bdc3c7"));
         
-        Polygon t = (Polygon) event.getSource();
-        t.fillProperty().setValue(Paint.valueOf("#bdc3c7"));
-        
-        selectedLabel = dic.get(t);
-        
-        for(ArrayList<Polygon> a : areas)
-            if(a.contains(t))
-                for(Polygon tf : a)
-                {
-                    selected.add(tf);
-                    tf.fillProperty().setValue(Paint.valueOf("#bdc3c7"));
-                }
+        selectedLabel = dic.get(newSelecetdPolygon);
+        selectedPolygon = newSelecetdPolygon;
     }
 
     private void loadSudokuBoard(int level)

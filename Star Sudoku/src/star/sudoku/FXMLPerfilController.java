@@ -2,6 +2,7 @@ package star.sudoku;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,11 +13,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import star.sudoku.sqlite.AjudanteParaBD;
+import star.sudoku.sqlite.Pontuacao;
 
 public class FXMLPerfilController implements Initializable 
 {
     @FXML private Label lUsername;
+    
+    @FXML private TableView userScoresTable;
+    @FXML private TableColumn colGameLevel;
+    @FXML private TableColumn colTime;
     
     @FXML
     private void handleEnterMainMenu(ActionEvent event) 
@@ -37,6 +47,12 @@ public class FXMLPerfilController implements Initializable
         }
     }
     
+    private void addGamesToTable(ArrayList<Pontuacao> pontuacoes)
+    {
+        for(Pontuacao p : pontuacoes)
+            userScoresTable.getItems().add(p);
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -44,6 +60,13 @@ public class FXMLPerfilController implements Initializable
     public void initialize(URL url, ResourceBundle rb)
     {
         lUsername.setText(SharedInformation.user.getUsername());
+        
+        colGameLevel.setCellValueFactory(new PropertyValueFactory<>("gameLevel"));
+        colTime.setCellValueFactory(new PropertyValueFactory<>("tempo"));
+        
+        ArrayList<Pontuacao> pontuacoes = AjudanteParaBD.selectAllPontuacaoByUser(SharedInformation.user.getUsername());
+        
+        addGamesToTable(pontuacoes);   
     }    
     
 }
