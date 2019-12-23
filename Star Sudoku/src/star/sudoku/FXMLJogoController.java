@@ -110,6 +110,8 @@ public class FXMLJogoController implements Initializable
     
     @FXML private Button controlPause;
     @FXML private Label lTimer;
+    @FXML private Label lGameLevel;
+    
                 
     private ArrayList<ArrayList<TextField>> areas = new ArrayList<>();
     private ArrayList<ArrayList<TextField>> lines = new ArrayList<>(); 
@@ -357,6 +359,8 @@ public class FXMLJogoController implements Initializable
     {
         idUser = SharedInformation.idUser;
         gameLevel = SharedInformation.gameLevel;
+        
+        lGameLevel.setText("Nivel: " + gameLevel);
         
         // Lista de Text fields para cada area
         ArrayList<TextField> area1 = new ArrayList<>();
