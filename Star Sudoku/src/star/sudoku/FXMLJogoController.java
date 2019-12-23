@@ -113,7 +113,11 @@ public class FXMLJogoController implements Initializable
                 
     private ArrayList<ArrayList<TextField>> areas = new ArrayList<>();
     private ArrayList<ArrayList<TextField>> lines = new ArrayList<>(); 
-    private ArrayList<ArrayList<TextField>> columns = new ArrayList<>(); 
+    private ArrayList<ArrayList<TextField>> diagonalsr = new ArrayList<>(); 
+    private ArrayList<ArrayList<TextField>> diagonalsl = new ArrayList<>();
+    
+    
+    private ArrayList<TextField> selected = new ArrayList<>();
 
     private int [][] solution = null;
     String numbers[] = new String[]{ "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -234,6 +238,64 @@ public class FXMLJogoController implements Initializable
         }
     }
     
+    @FXML
+    private void handleHighLigh(ActionEvent event)
+    {
+        for(TextField t : selected)
+        {
+            String areaId = t.getId().split("_")[0];
+            String color = getColor(areaId);
+            
+            t.setStyle("-fx-background-color: " + color);
+        }
+        
+        selected.clear();
+        
+        TextField t = (TextField) event.getSource();
+        
+        for(ArrayList<TextField> a : areas)
+            if(a.contains(t))
+                for(TextField tf : a)
+                {
+                    selected.add(tf);
+                    tf.setStyle("-fx-background-color: #bdc3c7");
+                }
+
+        for(ArrayList<TextField> dr : diagonalsr)
+            if(dr.contains(t))
+                for(TextField tf : dr)
+                {
+                    selected.add(tf);
+                    tf.setStyle("-fx-background-color: #bdc3c7");
+                }
+        
+        for(ArrayList<TextField> dl : diagonalsl)
+            if(dl.contains(t))
+                for(TextField tf : dl)
+                {
+                    selected.add(tf);
+                    tf.setStyle("-fx-background-color: #bdc3c7");
+                }
+        
+    }
+    
+    private String getColor(String id)
+    {
+        if(id.equals("1"))
+            return "#F39005";
+        if(id.equals("2"))
+            return "#ED98CD";
+        if(id.equals("3"))
+            return "#C0EDFF";
+        if(id.equals("4"))
+            return "#FDF779";
+        if(id.equals("5"))
+            return "#FD8092";
+        if(id.equals("6"))
+            return "#D8ED6E";
+        return "";  
+    }
+    
     // Função para ver se uma area está correta
     private boolean isAreaCorrect(int area, ArrayList<ArrayList<TextField>> areas)
     {
@@ -263,7 +325,6 @@ public class FXMLJogoController implements Initializable
         
         return true;
     }
-
     
     private void loadSudokuBoard(int level)
     {
@@ -447,82 +508,156 @@ public class FXMLJogoController implements Initializable
         lines.add(line5);
         lines.add(line6);
         
-        /*
-        //collumns
-        ArrayList<TextField> column1 = new ArrayList<>();
-        ArrayList<TextField> column2 = new ArrayList<>();
-        ArrayList<TextField> column3 = new ArrayList<>();
-        ArrayList<TextField> column4 = new ArrayList<>();
-        ArrayList<TextField> column5 = new ArrayList<>();
-        ArrayList<TextField> column6 = new ArrayList<>();
+        //diagonais direitas
+        ArrayList<TextField> diagonalr1 = new ArrayList<>();
+        ArrayList<TextField> diagonalr2 = new ArrayList<>();
+        ArrayList<TextField> diagonalr3 = new ArrayList<>();
+        ArrayList<TextField> diagonalr4 = new ArrayList<>();
+        ArrayList<TextField> diagonalr5 = new ArrayList<>();
+        ArrayList<TextField> diagonalr6 = new ArrayList<>();
         
-        column1.add(area5_1);
-        column1.add(area5_4);
-        column1.add(area5_3);
-        column1.add(area5_2);
-        column1.add(area6_9);
-        column1.add(area6_8);
-        column1.add(area6_7);
-        column1.add(area6_6);
-        column1.add(area6_5);
+        diagonalr1.add(area1_5);
+        diagonalr1.add(area1_6);
+        diagonalr1.add(area1_2);
+        diagonalr1.add(area1_3);
+        diagonalr1.add(area1_1);
+        diagonalr1.add(area6_2);
+        diagonalr1.add(area6_5);
+        diagonalr1.add(area6_6);
+        diagonalr1.add(area6_7);
         
-        column2.add(area1_1);
-        column2.add(area6_2);
-        column2.add(area6_3);
-        column2.add(area6_4);
-        column2.add(area5_5);
-        column2.add(area5_6);
-        column2.add(area5_7);
-        column2.add(area5_8);
-        column2.add(area5_9);
+        diagonalr2.add(area2_5);
+        diagonalr2.add(area1_7);
+        diagonalr2.add(area1_8);
+        diagonalr2.add(area1_4);
+        diagonalr2.add(area6_1);
+        diagonalr2.add(area6_3);
+        diagonalr2.add(area6_4);
+        diagonalr2.add(area6_8);
+        diagonalr2.add(area6_9);
         
-        column3.add(area1_2);
-        column3.add(area1_3);
-        column3.add(area1_4);
-        column3.add(area6_1);
-        column3.add(area4_5);
-        column3.add(area4_6);
-        column3.add(area4_7);
-        column3.add(area4_8);
-        column3.add(area4_9);
+        diagonalr3.add(area2_2);
+        diagonalr3.add(area2_6);
+        diagonalr3.add(area2_7);
+        diagonalr3.add(area1_9);
+        diagonalr3.add(area5_5);
+        diagonalr3.add(area5_6);
+        diagonalr3.add(area5_2);
+        diagonalr3.add(area5_3);
+        diagonalr3.add(area5_1);
 
-        column4.add(area1_5);
-        column4.add(area1_6);
-        column4.add(area1_7);
-        column4.add(area1_8);
-        column4.add(area1_9);
-        column4.add(area3_1);
-        column4.add(area4_2);
-        column4.add(area4_3);
-        column4.add(area4_4);
+        diagonalr4.add(area2_1);
+        diagonalr4.add(area2_3);
+        diagonalr4.add(area2_4);
+        diagonalr4.add(area2_8);
+        diagonalr4.add(area2_9);
+        diagonalr4.add(area4_5);
+        diagonalr4.add(area5_7);
+        diagonalr4.add(area5_8);
+        diagonalr4.add(area5_4);
         
-        column5.add(area2_5);
-        column5.add(area2_6);
-        column5.add(area2_7);
-        column5.add(area2_8);
-        column5.add(area2_9);
-        column5.add(area3_2);
-        column5.add(area3_3);
-        column5.add(area3_4);
-        column5.add(area4_1);
+        diagonalr5.add(area3_5);
+        diagonalr5.add(area3_6);
+        diagonalr5.add(area3_2);
+        diagonalr5.add(area3_3);
+        diagonalr5.add(area3_1);
+        diagonalr5.add(area4_2);
+        diagonalr5.add(area4_6);
+        diagonalr5.add(area4_7);
+        diagonalr5.add(area5_9);
         
-        column6.add(area2_2);
-        column6.add(area2_3);
-        column6.add(area2_4);
-        column6.add(area3_5);
-        column6.add(area3_6);
-        column6.add(area3_7);
-        column6.add(area3_8);
-        column6.add(area3_9);
-        column6.add(area2_1);
+        diagonalr6.add(area3_7);
+        diagonalr6.add(area3_8);
+        diagonalr6.add(area3_9);
+        diagonalr6.add(area3_4);
+        diagonalr6.add(area5_1);
+        diagonalr6.add(area5_3);
+        diagonalr6.add(area5_4);
+        diagonalr6.add(area5_8);
+        diagonalr6.add(area5_9);
         
-        columns.add(column1);
-        columns.add(column2);
-        columns.add(column3);
-        columns.add(column4);
-        columns.add(column5);
-        columns.add(column6);
-        */
+        diagonalsr.add(diagonalr1);
+        diagonalsr.add(diagonalr2);
+        diagonalsr.add(diagonalr3);
+        diagonalsr.add(diagonalr4);
+        diagonalsr.add(diagonalr5);
+        diagonalsr.add(diagonalr6);
+        
+        //diagonais esquerdas
+        ArrayList<TextField> diagonall1 = new ArrayList<>();
+        ArrayList<TextField> diagonall2 = new ArrayList<>();
+        ArrayList<TextField> diagonall3 = new ArrayList<>();
+        ArrayList<TextField> diagonall4 = new ArrayList<>();
+        ArrayList<TextField> diagonall5 = new ArrayList<>();
+        ArrayList<TextField> diagonall6 = new ArrayList<>();
+        
+        diagonall1.add(area2_1);
+        diagonall1.add(area2_2);
+        diagonall1.add(area2_3);
+        diagonall1.add(area2_5);
+        diagonall1.add(area2_6);
+        diagonall1.add(area1_5);
+        diagonall1.add(area1_6);
+        diagonall1.add(area1_7);
+        diagonall1.add(area1_2);
+        
+        diagonall2.add(area3_5);
+        diagonall2.add(area2_4);
+        diagonall2.add(area2_7);
+        diagonall2.add(area2_8);
+        diagonall2.add(area1_8);
+        diagonall2.add(area1_9);
+        diagonall2.add(area1_3);
+        diagonall2.add(area1_4);
+        diagonall2.add(area1_1);
+        
+        diagonall3.add(area3_7);
+        diagonall3.add(area3_6);
+        diagonall3.add(area2_9);
+        diagonall3.add(area3_2);
+        diagonall3.add(area6_1);
+        diagonall3.add(area6_2);
+        diagonall3.add(area6_3);
+        diagonall3.add(area6_5);
+        diagonall3.add(area6_6);
+
+        diagonall4.add(area3_8);
+        diagonall4.add(area3_9);
+        diagonall4.add(area3_3);
+        diagonall4.add(area3_4);
+        diagonall4.add(area3_1);
+        diagonall4.add(area6_4);
+        diagonall4.add(area5_5);
+        diagonall4.add(area6_7);
+        diagonall4.add(area6_8);
+        
+        diagonall5.add(area4_1);
+        diagonall5.add(area4_2);
+        diagonall5.add(area4_3);
+        diagonall5.add(area4_5);
+        diagonall5.add(area4_6);
+        diagonall5.add(area5_6);
+        diagonall5.add(area5_7);
+        diagonall5.add(area6_9);
+        diagonall5.add(area5_2);
+        
+        diagonall6.add(area4_4);
+        diagonall6.add(area4_7);
+        diagonall6.add(area4_8);
+        diagonall6.add(area4_9);
+        diagonall6.add(area5_8);
+        diagonall6.add(area5_9);
+        diagonall6.add(area5_3);
+        diagonall6.add(area5_4);
+        diagonall6.add(area5_1);
+        
+        diagonalsl.add(diagonall1);
+        diagonalsl.add(diagonall2);
+        diagonalsl.add(diagonall3);
+        diagonalsl.add(diagonall4);
+        diagonalsl.add(diagonall5);
+        diagonalsl.add(diagonall6);
+        
         
         loadSudokuBoard(gameLevel);
         
