@@ -166,7 +166,8 @@ public class AjudanteParaBD
             pstmt.setInt(1, time);
             pstmt.setInt(2, idPontuacao);
             pstmt.executeUpdate();
-        } catch (SQLException e) 
+        } 
+        catch (SQLException e) 
         {
             System.out.println("AjudanteParaBD.updateGameLevelTime: " + e.getMessage());
         }
@@ -174,14 +175,18 @@ public class AjudanteParaBD
     
     public static Utilizador selectUserFromUtilizador(String username, String password)
     {
-        String sql = "SELECT " + UTILIZADOR_ID + "," + UTILIZADOR_NOME + " FROM " + TABELA_UTILIZADOR 
-                + " WHERE " + UTILIZADOR_NOME + " = " + username + " and " 
-                + UTILIZADOR_PALAVRAPASSE + " = " + password + ";";
+        String sql = "SELECT " + UTILIZADOR_ID + " , " + UTILIZADOR_NOME 
+                + " FROM " + TABELA_UTILIZADOR 
+                + " WHERE " + UTILIZADOR_NOME + " = ? and " + UTILIZADOR_PALAVRAPASSE + " = ?;";
         
-        try (Connection conn = ConnectToDB())
-        {
-            Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+        
+            //Statement stmt  = conn.createStatement();
+            ResultSet rs = pstmt.executeQuery();
             
             if(!rs.next())
                 return null;
@@ -193,6 +198,48 @@ public class AjudanteParaBD
         {
             System.out.println("AjudanteParaBD.selectUserFromUtilizador: " + e.getMessage());
             return null;
+        }
+    }
+    
+    public static boolean isNameInUse(String username)
+    {
+        String sql = "SELECT " + UTILIZADOR_ID + "," + UTILIZADOR_NOME + " FROM " + TABELA_UTILIZADOR 
+                + " WHERE " + UTILIZADOR_NOME + " = ?;";
+        
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            
+            pstmt.setString(1, username);
+        
+            //Statement stmt  = conn.createStatement();
+            ResultSet rs = pstmt.executeQuery();
+            return rs.next();
+            
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.isNameInUse: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public static boolean insertUserInUtilizador(String username, String password)
+    {
+        String sql = "INSERT INTO "+ TABELA_UTILIZADOR + "(" + UTILIZADOR_NOME + "," + UTILIZADOR_PALAVRAPASSE + ") VALUES(?,?)";
+ 
+        try (Connection conn = ConnectToDB())
+        {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, username);
+            pstmt.setString(2, password);
+            pstmt.executeUpdate();
+            
+            return true;
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.insertUserInUtilizador: " + e.getMessage());
+            return false;
         }
     }
 }

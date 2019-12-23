@@ -29,8 +29,7 @@ public class FXMLLoginController implements Initializable {
     @FXML
     private void handleLogin(ActionEvent event)
     {
-        Utilizador u = AjudanteParaBD.selectUserFromUtilizador(userTextField.getText(), 
-                passwordTextField.getText());
+        Utilizador u = AjudanteParaBD.selectUserFromUtilizador(userTextField.getText(), passwordTextField.getText());
         if(u == null)
         {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -62,7 +61,6 @@ public class FXMLLoginController implements Initializable {
             Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
     
     private void enterMainMenu()
     {
