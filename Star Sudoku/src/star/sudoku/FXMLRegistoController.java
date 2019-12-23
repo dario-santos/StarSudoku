@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package star.sudoku;
 
 import java.io.IOException;
@@ -18,17 +13,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import star.sudoku.sqlite.AjudanteParaBD;
 
-
-/**
- *
- * 
- */
 public class FXMLRegistoController implements Initializable 
 {
     @FXML private TextField userTextField; 
@@ -77,7 +66,6 @@ public class FXMLRegistoController implements Initializable
             alert.showAndWait();
             
             enterLogin();
-            
         }
     }
     

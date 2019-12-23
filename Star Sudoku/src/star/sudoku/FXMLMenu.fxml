@@ -5,11 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #C4C4C4;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLMenuController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #C4C4C4;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLMenuController">
     <stylesheets>
         <URL value="@fxmlmenu.css" />
     </stylesheets>
    <children>
+      <Button layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#handleSignOut" text="Sair" />
       <Button fx:id="buttonJogar" layoutX="263.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleJogarAction" prefHeight="47.0" prefWidth="274.0" text="Jogar" AnchorPane.bottomAnchor="300.0" AnchorPane.topAnchor="253.0">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -18,15 +19,15 @@
          <font>
             <Font name="System Bold" size="20.0" />
          </font></Button>
-      <Button layoutX="263.0" layoutY="378.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="80.0" text="Perfil" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="220.0">
+      <Button layoutX="263.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleEnterPerfil" prefHeight="47.0" prefWidth="80.0" text="Perfil" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="220.0">
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Button layoutX="353.0" layoutY="378.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="95.0" text="Pontuação" AnchorPane.bottomAnchor="130.0">
+      <Button layoutX="353.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleEnterPontuacao" prefHeight="47.0" prefWidth="95.0" text="Pontuação" AnchorPane.bottomAnchor="130.0">
          <font>
             <Font size="15.0" />
          </font></Button>
-      <Button layoutX="457.0" layoutY="378.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="80.0" text="Info" AnchorPane.bottomAnchor="160.0" AnchorPane.rightAnchor="220.0">
+      <Button layoutX="457.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleEnterInfo" prefHeight="47.0" prefWidth="80.0" text="Info" AnchorPane.bottomAnchor="160.0" AnchorPane.rightAnchor="220.0">
          <font>
             <Font size="15.0" />
          </font></Button>

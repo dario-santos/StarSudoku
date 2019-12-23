@@ -10,22 +10,22 @@
         <URL value="@fxmlselecionarnivel.css" />
     </stylesheets>
    <children>
+      <Button layoutX="42.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" />
       <Label layoutX="222.0" layoutY="48.0" text="SELECIONAR NÍVEL" />
+      <Label layoutX="116.0" layoutY="143.0" text="Facil" />
       <Button fx:id="level_1" layoutX="116.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="1" />
       <Button layoutX="164.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="2" />
       <Button layoutX="116.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="3" />
       <Button layoutX="164.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="4" />
-      <Button layoutX="243.0" layoutY="226.0" mnemonicParsing="false" text="7" />
+      <Label layoutX="243.0" layoutY="143.0" text="Médio" />
       <Button layoutX="243.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="5" />
       <Button layoutX="293.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="6" />
+      <Button layoutX="243.0" layoutY="226.0" mnemonicParsing="false" text="7" />
       <Button layoutX="293.0" layoutY="226.0" mnemonicParsing="false" text="8" />
-      <Button layoutX="389.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="9" />
-      <Button layoutX="389.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="11" />
-      <Button layoutX="448.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="10" />
-      <Button layoutX="448.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="12" />
-      <Button layoutX="42.0" layoutY="43.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" />
-      <Label layoutX="116.0" layoutY="143.0" text="Facil" />
-      <Label layoutX="243.0" layoutY="143.0" text="Médio" />
       <Label layoutX="385.0" layoutY="143.0" text="Difícil" />
+      <Button layoutX="389.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="9" />
+      <Button layoutX="448.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="10" />
+      <Button layoutX="389.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="11" />
+      <Button layoutX="448.0" layoutY="226.0" mnemonicParsing="false" onAction="#handleLevelSelector" text="12" />
    </children>
 </AnchorPane>

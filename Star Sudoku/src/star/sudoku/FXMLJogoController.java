@@ -132,7 +132,7 @@ public class FXMLJogoController implements Initializable
                     || !GameLogic.isDiagonalLCorrect(i, diagonalsr))
             {
                 pane.setStyle("-fx-background-color: #e74c3c;");
-                return;
+                //return;
             }
 
         // Se correu tudo bem o jogo terminou
@@ -142,7 +142,7 @@ public class FXMLJogoController implements Initializable
         
         // O utilizador já jogou este nível antes?
         String sql = "SELECT " + AjudanteParaBD.PONTUACAO_TEMPO + " , " + AjudanteParaBD.PONTUACAO_ID + " FROM " + AjudanteParaBD.TABELA_PONTUACAO 
-                        + " WHERE " + AjudanteParaBD.PONTUACAO_IDUTILIZADOR +  " = " + SharedInformation.user.getId() +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
+                        + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR +  " = " + SharedInformation.user.getUsername() +  " and " + AjudanteParaBD.PONTUACAO_NIVEL +  " = " + SharedInformation.gameLevel +  ";";
         
         boolean exists = false;
         int bestTime = 0;
@@ -167,7 +167,7 @@ public class FXMLJogoController implements Initializable
         // Create or Update user time
         if(!exists)
             AjudanteParaBD.insertPontuation(SharedInformation.gameLevel, 
-                    currentTime, SharedInformation.user.getId());
+                    currentTime, SharedInformation.user.getUsername());
         else
             if(currentTime < bestTime)
                   AjudanteParaBD.updateGameLevelTime(idPontuancao, currentTime);

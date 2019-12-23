@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class AjudanteParaBD 
 {   
@@ -25,7 +26,7 @@ public class AjudanteParaBD
     public static final String PONTUACAO_ID = "idPontuacao";
     public static final String PONTUACAO_NIVEL = "Nível";
     public static final String PONTUACAO_TEMPO = "Tempo";
-    public static final String PONTUACAO_IDUTILIZADOR = "idUtilizador";
+    public static final String PONTUACAO_UTILIZADOR = "idUtilizador";
 
     // Table Create Statements
     // User table create statement
@@ -40,7 +41,7 @@ public class AjudanteParaBD
             + PONTUACAO_ID + " INTEGER PRIMARY KEY,"
             + PONTUACAO_NIVEL + " INTEGER,"
             + PONTUACAO_TEMPO + " INTEGER,"
-            + PONTUACAO_IDUTILIZADOR + " INTEGER"
+            + PONTUACAO_UTILIZADOR + " VARCHAR(20)"
             + ");";
 
     private AjudanteParaBD() {}
@@ -62,7 +63,8 @@ public class AjudanteParaBD
                 System.out.println("As tabelas " + TABELA_UTILIZADOR + " e " + TABELA_PONTUACAO + " foram criadas.");
     
             }
-        } catch (SQLException e) 
+        } 
+        catch (SQLException e) 
         {
             System.out.println(e.getMessage());
         }
@@ -82,7 +84,7 @@ public class AjudanteParaBD
         } 
         catch(SQLException e) 
         {
-            System.out.println(e.getMessage());
+            System.out.println("AjudanteParaBD.ConnectToDB: " + e.getMessage());
         }
         return null;
     }
@@ -91,63 +93,27 @@ public class AjudanteParaBD
     {
         try 
         {
-            if (conn != null)
-                conn.close();
-                
-        } catch (SQLException ex) 
+            if(conn != null)
+                conn.close();    
+        } 
+        catch (SQLException e) 
         {
-            System.out.println(ex.getMessage());
+            System.out.println("AjudanteParaBD.DisconnectFromDB: " + e.getMessage());
         }
     }
-    
-    public static void insert() 
-    {
-        String sql = "INSERT INTO "+ TABELA_UTILIZADOR + "(" + UTILIZADOR_NOME + "," + UTILIZADOR_PALAVRAPASSE + ") VALUES(?,?)";
- 
-        try (Connection conn = ConnectToDB())
-        {
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "Dario");
-            pstmt.setString(2, "123");
-            pstmt.executeUpdate();
-        } catch (SQLException e) 
-        {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public static void selectAll()
-    {
-        String sql = "SELECT * FROM " + TABELA_UTILIZADOR + ";";
-        
-        try (Connection conn = ConnectToDB())
-        {
-            Statement stmt  = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            
-            while (rs.next()) 
-            {
-                System.out.println(rs.getInt(UTILIZADOR_ID) +  "\t" + 
-                                   rs.getString(UTILIZADOR_NOME) + "\t" +
-                                   rs.getString(UTILIZADOR_PALAVRAPASSE));
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    public static void insertPontuation(int gameLevel, int time, int idUser)
+
+    public static void insertPontuation(int gameLevel, int time, String username)
     {
         String sql = "INSERT INTO " + AjudanteParaBD.TABELA_PONTUACAO + "(" 
                 + AjudanteParaBD.PONTUACAO_NIVEL + "," 
                 + AjudanteParaBD.PONTUACAO_TEMPO + "," 
-                + AjudanteParaBD.PONTUACAO_IDUTILIZADOR + ") VALUES(?,?,?)";
+                + AjudanteParaBD.PONTUACAO_UTILIZADOR + ") VALUES(?,?,?)";
 
         try (Connection conn = AjudanteParaBD.ConnectToDB()) {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, gameLevel);
             pstmt.setInt(2, time);
-            pstmt.setInt(3, idUser);
+            pstmt.setString(3, username);
             pstmt.executeUpdate();
         } catch (SQLException e) 
         {
@@ -242,4 +208,34 @@ public class AjudanteParaBD
             return false;
         }
     }
+    
+    public static ArrayList<Pontuacao> selectNPontuacao(int n)
+    {
+        String sql = "SELECT " + PONTUACAO_NIVEL + " , " + PONTUACAO_TEMPO + " , " + PONTUACAO_UTILIZADOR 
+                + " FROM " + TABELA_PONTUACAO 
+                + " ORDER BY " + PONTUACAO_ID + " DESC LIMIT ?;;";
+        
+        try (Connection conn = AjudanteParaBD.ConnectToDB();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) 
+        {
+            
+            pstmt.setInt(1, n);
+        
+            ResultSet rs = pstmt.executeQuery();
+            
+            ArrayList<Pontuacao> pontuacoes = new ArrayList<>();
+            
+            while(rs.next())
+                pontuacoes.add(new Pontuacao(rs.getString(PONTUACAO_UTILIZADOR), rs.getInt(PONTUACAO_NIVEL), rs.getInt(PONTUACAO_TEMPO)));
+            
+            return pontuacoes;
+        } 
+        catch (SQLException e) 
+        {
+            System.out.println("AjudanteParaBD.selectNPontuacao: " + e.getMessage());
+            return null;
+        }
+    }
+    
+    
 }
