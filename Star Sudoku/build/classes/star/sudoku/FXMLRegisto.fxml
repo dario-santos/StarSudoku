@@ -7,35 +7,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLRegistoController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLRegistoController">
     <children>
       <AnchorPane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #C4C4C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="14.0" layoutY="22.0" mnemonicParsing="false" onAction="#handleBack" text="Voltar" />
-            <Label layoutX="106.0" layoutY="111.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="213.0" text="Nome de utilizador" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="100.0">
+            <Button layoutX="176.0" layoutY="524.0" mnemonicParsing="false" onAction="#handleBack" text="Voltar" AnchorPane.bottomAnchor="50.0">
                <font>
-                  <Font size="24.0" />
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></Button>
+            <Label layoutX="106.0" layoutY="111.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="264.0" text="Nome de Utilizador" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="100.0">
+               <font>
+                  <Font name="OCR A Extended" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="userTextField" layoutX="106.0" layoutY="155.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira o Username" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="140.0" />            
-            <Label layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="Palavra-passe" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="190.0">
-                <font>
-                  <Font size="24.0" />
-                </font>
-            </Label>
-            <PasswordField fx:id="passwordTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira a palavra-passe" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="230.0" />
-            <Label layoutX="111.0" layoutY="283.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="269.0" text="Confirmar palavra-passe" AnchorPane.leftAnchor="106.0" AnchorPane.topAnchor="280.0">
-                <font>
-                  <Font size="24.0" />
-                </font>
-            </Label>
-            <PasswordField fx:id="passwordConfirmTextField" layoutX="112.0" layoutY="344.0" prefHeight="35.0" prefWidth="202.0" promptText="Insira a palavra-passe" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="320.0" />
-              <Button layoutX="143.0" layoutY="391.0" onAction="#handleRegisto" prefHeight="51.0" prefWidth="140.0" text="Registar" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="391.0">
+            <TextField fx:id="userTextField" layoutX="106.0" layoutY="155.0" prefHeight="35.0" prefWidth="240.0" promptText="Insira o seu Nome de Utlizador" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="140.0">
                <font>
-                <Font size="24.0" />
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></TextField>            
+            <Label layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="Palavra-Passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="190.0">
+                <font>
+                  <Font name="OCR A Extended" size="24.0" />
+                </font>
+            </Label>
+            <PasswordField fx:id="passwordTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="240.0" promptText="Insira a palavra-passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="230.0">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></PasswordField>
+            <Label layoutX="50.0" layoutY="283.0" minHeight="16" minWidth="69" prefHeight="35.0" prefWidth="349.0" text="Confirmar Palavra-Passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="280.0">
+                <font>
+                  <Font name="OCR A Extended" size="24.0" />
+                </font>
+            </Label>
+            <PasswordField fx:id="passwordConfirmTextField" layoutX="112.0" layoutY="344.0" prefHeight="35.0" prefWidth="240.0" promptText="Comfirme a palavra-passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></PasswordField>
+              <Button layoutX="143.0" layoutY="391.0" onAction="#handleRegisto" prefHeight="50.0" prefWidth="150.0" text="Registar" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="126.0" AnchorPane.rightAnchor="126.0">
+               <font>
+                <Font name="OCR A Extended" size="24.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
+      <Label contentDisplay="CENTER" layoutX="24.0" layoutY="225.0" opacity="0.5" prefHeight="137.0" prefWidth="400.0" rotate="-2.0" text="EYE SHOOT" wrapText="true" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="70.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

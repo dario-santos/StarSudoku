@@ -4,34 +4,53 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLLoginController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLLoginController">
     <children>
       <AnchorPane layoutX="400.0" prefHeight="600.0" prefWidth="400.0" style="-fx-background-color: #C4C4C4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>            
-            <Label fx:id="User" layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="User" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="190.0">
+            <Label fx:id="User" layoutX="107.0" layoutY="198.0" minHeight="16" minWidth="69" text="Nome de Utlizidador" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="190.0">
                 <font>
-                  <Font size="24.0" />
+                  <Font name="OCR A Extended" size="24.0" />
                 </font>
             </Label>
-            <TextField fx:id="userTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="202.0" promptText="Username" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="92.0" AnchorPane.topAnchor="230.0" />
-            <Label fx:id="Password" layoutX="111.0" layoutY="283.0" minHeight="16" minWidth="69" text="Password" AnchorPane.topAnchor="280.0">
-                <font>
-                  <Font size="24.0" />
-                </font>
-            </Label>
-            <PasswordField fx:id="passwordTextField" layoutX="106.0" layoutY="318.0" prefHeight="35.0" prefWidth="202.0" promptText="Password" AnchorPane.topAnchor="320.0" />
-              <Button fx:id="button" layoutX="147.0" layoutY="391.0" onAction="#handleLogin" prefHeight="51.0" prefWidth="107.0" text="Sign In" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="146.0" AnchorPane.topAnchor="391.0">
+            <TextField fx:id="userTextField" layoutX="106.0" layoutY="233.0" prefHeight="35.0" prefWidth="240.0" promptText="Nome de Utilizador" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="230.0">
                <font>
-                <Font size="24.0" />
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></TextField>
+            <Label fx:id="Password" layoutX="111.0" layoutY="283.0" minHeight="16" minWidth="69" text="Palavra-Passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="280.0">
+                <font>
+                  <Font name="OCR A Extended" size="24.0" />
+                </font>
+            </Label>
+            <PasswordField fx:id="passwordTextField" layoutX="106.0" layoutY="318.0" prefHeight="35.0" prefWidth="240.0" promptText="Palavra-Passe" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="320.0">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></PasswordField>
+              <Button fx:id="button" layoutX="131.0" layoutY="393.0" onAction="#handleLogin" prefHeight="51.0" prefWidth="135.0" text="Entrar" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="134.0">
+               <font>
+                <Font name="OCR A Extended" size="24.0" />
                </font>
             </Button>
-            <Text layoutX="192.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Or" AnchorPane.bottomAnchor="127.0" AnchorPane.leftAnchor="192.0" AnchorPane.rightAnchor="191.4765625" />
-            <Button layoutX="147.0" layoutY="483.0" mnemonicParsing="false" onAction="#handleRegisto" prefHeight="25.0" prefWidth="107.0" text="Sign Up" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="146.0" AnchorPane.topAnchor="483.0" />
+            <Text layoutX="193.0" layoutY="495.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OU" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="193.0" AnchorPane.rightAnchor="19.0">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></Text>
+            <Button layoutX="147.0" layoutY="483.0" mnemonicParsing="false" onAction="#handleRegisto" prefHeight="25.0" prefWidth="107.0" text="Registar" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="146.0">
+               <font>
+                  <Font name="OCR A Extended" size="12.0" />
+               </font></Button>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="389.0" fitWidth="555.0" layoutX="-80.0" layoutY="117.0" opacity="0.5" rotate="-2.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="120.0">
+         <image>
+            <Image url="@../../../../../../../Desktop/Universidade/IHC/Trabalho%20-%20Sudoku/Sudoku/Titulo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

@@ -35,7 +35,7 @@ public class FXMLPontuacaoController implements Initializable
     }
     
     @FXML
-    private void handleEnterMainMenu(MouseEvent event) 
+    private void handleEnterMainMenu(ActionEvent event) 
     {
         Parent root;
         try 
