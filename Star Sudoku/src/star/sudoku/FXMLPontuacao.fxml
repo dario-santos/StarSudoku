@@ -5,17 +5,29 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLPontuacaoController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLPontuacaoController">
    <children>
-      <Button layoutX="22.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleEnterMainMenu" text="Voltar" />
-      <TableView fx:id="lastGamesTable" layoutX="142.0" layoutY="123.0" prefHeight="200.0" prefWidth="336.0">
+      <Button layoutX="22.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleEnterMainMenu" text="Voltar" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="OCR A Extended" size="12.0" />
+         </font></Button>
+      <TableView fx:id="lastGamesTable" layoutX="225.0" layoutY="266.0" prefHeight="250.0" prefWidth="350.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="225.0" AnchorPane.rightAnchor="225.0">
         <columns>
           <TableColumn fx:id="colName" prefWidth="110.0" text="Nome" />
           <TableColumn fx:id="colGameLevel" prefWidth="107.0" text="Nível" />
             <TableColumn fx:id="colTime" prefWidth="118.0" text="Tempo" />
         </columns>
       </TableView>
-      <Label layoutX="216.0" layoutY="31.0" prefHeight="21.0" prefWidth="152.0" text="Últimos Jogadores" />
+      <Label layoutX="329.0" layoutY="190.0" prefHeight="21.0" prefWidth="142.0" text="Últimos Jogadores" AnchorPane.bottomAnchor="389.0">
+         <font>
+            <Font name="OCR A Extended" size="13.0" />
+         </font></Label>
+      <Label layoutX="301.0" layoutY="40.0" prefHeight="38.0" prefWidth="198.0" text="Pontuação" AnchorPane.bottomAnchor="500.0">
+         <font>
+            <Font name="OCR A Extended" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
