@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -49,10 +51,10 @@
             </Button>
          </children>
       </AnchorPane>
-      <Label contentDisplay="CENTER" layoutX="24.0" layoutY="225.0" opacity="0.5" prefHeight="137.0" prefWidth="400.0" rotate="-2.0" text="EYE SHOOT" wrapText="true" AnchorPane.bottomAnchor="225.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="225.0">
-         <font>
-            <Font name="OCR A Extended" size="70.0" />
-         </font>
-      </Label>
+      <ImageView fitHeight="233.0" fitWidth="400.0" layoutX="-1.0" layoutY="164.0" opacity="0.5" rotate="-2.0" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="170.0">
+         <image>
+            <Image url="@../../../../../../../Desktop/Universidade/IHC/Trabalho%20-%20Sudoku/Sudoku/Titulo.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

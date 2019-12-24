@@ -47,7 +47,7 @@
                </font></Button>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="389.0" fitWidth="555.0" layoutX="-80.0" layoutY="117.0" opacity="0.5" rotate="-2.0" AnchorPane.bottomAnchor="100.0" AnchorPane.topAnchor="120.0">
+      <ImageView fitHeight="233.0" fitWidth="400.0" layoutY="173.0" opacity="0.5" rotate="-2.0" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="-10.0" AnchorPane.topAnchor="170.0">
          <image>
             <Image url="@../../../../../../../Desktop/Universidade/IHC/Trabalho%20-%20Sudoku/Sudoku/Titulo.png" />
          </image>

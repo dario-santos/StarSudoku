@@ -5,133 +5,338 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="481.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLJogoController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLJogoController">
     <stylesheets>
         <URL value="@fxmljogo.css" />
     </stylesheets>
    <children>
-      <Button fx:id="verificar" layoutX="157.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleButtonValidate" text="Verificar" />
-      <Label fx:id="lTimer" layoutX="256.0" layoutY="60.0" text="00:00" />
-      <Button fx:id="controlPause" layoutX="342.0" layoutY="442.0" mnemonicParsing="false" onAction="#handlePauseGame" text="Pausar" />
-      <Button layoutX="80.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" />
-      <Label fx:id="lGameLevel" layoutX="254.0" layoutY="29.0" text="Nível: " />
-      <Label fx:id="text1_1" layoutX="210.0" layoutY="180.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text1_2" layoutX="190.0" layoutY="219.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text1_3" layoutX="210.0" layoutY="202.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text1_4" layoutX="230.0" layoutY="219.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text1_5" layoutX="169.0" layoutY="258.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text1_6" layoutX="191.0" layoutY="242.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text1_7" layoutX="211.0" layoutY="258.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text1_8" layoutX="231.0" layoutY="242.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text1_9" layoutX="251.0" layoutY="258.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Label fx:id="text2_1" layoutX="250.0" layoutY="361.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text2_2" layoutX="230.0" layoutY="325.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text2_3" layoutX="250.0" layoutY="333.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text2_4" layoutX="270.0" layoutY="325.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text2_5" layoutX="210.0" layoutY="290.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text2_6" layoutX="230.0" layoutY="298.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text2_7" layoutX="250.0" layoutY="283.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text2_8" layoutX="270.0" layoutY="299.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text2_9" layoutX="290.0" layoutY="283.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Label fx:id="text3_1" layoutX="330.0" layoutY="260.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text3_2" layoutX="310.0" layoutY="299.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text3_3" layoutX="330.0" layoutY="282.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text3_4" layoutX="350.0" layoutY="299.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text3_5" layoutX="287.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text3_6" layoutX="309.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text3_7" layoutX="329.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text3_8" layoutX="349.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text3_9" layoutX="369.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Label fx:id="text4_1" layoutX="370.0" layoutY="287.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text4_2" layoutX="350.0" layoutY="251.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text4_3" layoutX="370.0" layoutY="259.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text4_4" layoutX="390.0" layoutY="251.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text4_5" layoutX="330.0" layoutY="206.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text4_6" layoutX="350.0" layoutY="220.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text4_7" layoutX="370.0" layoutY="205.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text4_8" layoutX="390.0" layoutY="221.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text4_9" layoutX="410.0" layoutY="205.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Label fx:id="text5_1" layoutX="330.0" layoutY="105.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text5_2" layoutX="310.0" layoutY="142.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text5_3" layoutX="330.0" layoutY="124.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text5_4" layoutX="350.0" layoutY="142.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text5_5" layoutX="288.0" layoutY="182.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text5_6" layoutX="310.0" layoutY="166.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text5_7" layoutX="330.0" layoutY="182.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text5_8" layoutX="350.0" layoutY="166.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text5_9" layoutX="370.0" layoutY="182.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Label fx:id="text6_1" layoutX="250.0" layoutY="206.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" />
-      <Label fx:id="text6_2" layoutX="230.0" layoutY="170.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" />
-      <Label fx:id="text6_3" layoutX="250.0" layoutY="178.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" />
-      <Label fx:id="text6_4" layoutX="270.0" layoutY="170.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" />
-      <Label fx:id="text6_5" layoutX="210.0" layoutY="125.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" />
-      <Label fx:id="text6_6" layoutX="230.0" layoutY="139.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" />
-      <Label fx:id="text6_7" layoutX="250.0" layoutY="124.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" />
-      <Label fx:id="text6_8" layoutX="270.0" layoutY="140.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" />
-      <Label fx:id="text6_9" layoutX="290.0" layoutY="124.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" />
-      <Polygon fx:id="area2_8" blendMode="MULTIPLY" fill="#ed98cd" layoutX="274.0" layoutY="341.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_6" blendMode="MULTIPLY" fill="#ed98cd" layoutX="234.0" layoutY="341.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_3" blendMode="MULTIPLY" fill="#ed98cd" layoutX="254.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_9" blendMode="MULTIPLY" fill="#ed98cd" layoutX="294.0" layoutY="343.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_7" blendMode="MULTIPLY" fill="#ed98cd" layoutX="254.0" layoutY="344.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_4" blendMode="MULTIPLY" fill="#ed98cd" layoutX="274.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_2" blendMode="MULTIPLY" fill="#ed98cd" layoutX="234.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_5" blendMode="MULTIPLY" fill="#ed98cd" layoutX="214.0" layoutY="344.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area2_1" blendMode="MULTIPLY" fill="#ed98cd" layoutX="254.0" layoutY="422.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_6" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="234.0" layoutY="181.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_3" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="254.0" layoutY="220.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_9" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="294.0" layoutY="183.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_7" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="254.0" layoutY="184.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_4" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="274.0" layoutY="222.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_2" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="234.0" layoutY="222.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_5" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="214.0" layoutY="184.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_1" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="254.0" layoutY="262.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_5" blendMode="MULTIPLY" fill="#c0edff" layoutX="294.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_3" blendMode="MULTIPLY" fill="#c0edff" layoutX="334.0" layoutY="344.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_8" blendMode="MULTIPLY" fill="#c0edff" layoutX="354.0" layoutY="383.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_6" blendMode="MULTIPLY" fill="#c0edff" layoutX="314.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_7" blendMode="MULTIPLY" fill="#c0edff" layoutX="334.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_2" blendMode="MULTIPLY" fill="#c0edff" layoutX="314.0" layoutY="342.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_4" blendMode="MULTIPLY" fill="#c0edff" layoutX="354.0" layoutY="342.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_9" blendMode="MULTIPLY" fill="#c0edff" layoutX="374.0" layoutY="381.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area3_1" blendMode="MULTIPLY" fill="#c0edff" layoutX="334.0" layoutY="302.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_8" blendMode="MULTIPLY" fill="#fdf779" layoutX="394.0" layoutY="263.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_6" blendMode="MULTIPLY" fill="#fdf779" layoutX="354.0" layoutY="263.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_3" blendMode="MULTIPLY" fill="#fdf779" layoutX="374.0" layoutY="302.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_9" blendMode="MULTIPLY" fill="#fdf779" layoutX="414.0" layoutY="265.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_7" blendMode="MULTIPLY" fill="#fdf779" layoutX="374.0" layoutY="266.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_4" blendMode="MULTIPLY" fill="#fdf779" layoutX="394.0" layoutY="304.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_2" blendMode="MULTIPLY" fill="#fdf779" layoutX="354.0" layoutY="304.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_5" blendMode="MULTIPLY" fill="#fdf779" layoutX="334.0" layoutY="266.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area4_1" blendMode="MULTIPLY" fill="#fdf779" layoutX="374.0" layoutY="344.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_5" blendMode="MULTIPLY" fill="#fd8092" layoutX="294.0" layoutY="223.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_3" blendMode="MULTIPLY" fill="#fd8092" layoutX="334.0" layoutY="187.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_8" blendMode="MULTIPLY" fill="#fd8092" layoutX="354.0" layoutY="226.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_6" blendMode="MULTIPLY" fill="#fd8092" layoutX="314.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_7" blendMode="MULTIPLY" fill="#fd8092" layoutX="334.0" layoutY="223.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_2" blendMode="MULTIPLY" fill="#fd8092" layoutX="314.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_4" blendMode="MULTIPLY" fill="#fd8092" layoutX="354.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_9" blendMode="MULTIPLY" fill="#fd8092" layoutX="374.0" layoutY="224.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area5_1" blendMode="MULTIPLY" fill="#fd8092" layoutX="334.0" layoutY="145.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area6_8" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="275.0" layoutY="181.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_5" blendMode="MULTIPLY" fill="#f39005" layoutX="174.0" layoutY="299.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_3" blendMode="MULTIPLY" fill="#f39005" layoutX="214.0" layoutY="263.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_8" blendMode="MULTIPLY" fill="#f39005" layoutX="234.0" layoutY="302.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_6" blendMode="MULTIPLY" fill="#f39005" layoutX="194.0" layoutY="301.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_7" blendMode="MULTIPLY" fill="#f39005" layoutX="214.0" layoutY="299.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_2" blendMode="MULTIPLY" fill="#f39005" layoutX="194.0" layoutY="261.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_4" blendMode="MULTIPLY" fill="#f39005" layoutX="234.0" layoutY="261.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_9" blendMode="MULTIPLY" fill="#f39005" layoutX="254.0" layoutY="300.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Polygon fx:id="area1_1" blendMode="MULTIPLY" fill="#f39005" layoutX="214.0" layoutY="221.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" />
-      <Button fx:id="button1" layoutX="447.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="1" />
-      <Button fx:id="button2" layoutX="491.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="2" />
-      <Button fx:id="button3" layoutX="532.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="3" />
-      <Button fx:id="button4" layoutX="447.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="4" />
-      <Button fx:id="button5" layoutX="491.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="5" />
-      <Button fx:id="button6" layoutX="532.0" layoutY="224.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="6" />
-      <Button fx:id="button7" layoutX="449.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="7" />
-      <Button fx:id="button8" layoutX="493.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="8" />
-      <Button fx:id="button9" layoutX="534.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="9" />
+      <Button fx:id="verificar" layoutX="177.0" layoutY="517.0" mnemonicParsing="false" onAction="#handleButtonValidate" text="Verificar" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="200.0">
+         <font>
+            <Font name="OCR A Extended" size="18.0" />
+         </font></Button>
+      <Label fx:id="lTimer" layoutX="364.0" layoutY="62.0" prefHeight="26.0" prefWidth="76.0" text="00:00" AnchorPane.leftAnchor="363.0" AnchorPane.rightAnchor="363.0">
+         <font>
+            <Font name="OCR A Extended" size="24.0" />
+         </font></Label>
+      <Button fx:id="controlPause" layoutX="534.0" layoutY="517.0" mnemonicParsing="false" onAction="#handlePauseGame" text="Pausar" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="200.0">
+         <font>
+            <Font name="OCR A Extended" size="18.0" />
+         </font></Button>
+      <Button layoutX="80.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleBack" text="Sair" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
+         <font>
+            <Font name="OCR A Extended" size="12.0" />
+         </font></Button>
+      <Label fx:id="lGameLevel" layoutX="349.0" layoutY="27.0" prefHeight="26.0" prefWidth="103.0" text="Nível: " AnchorPane.leftAnchor="349.0" AnchorPane.rightAnchor="349.0">
+         <font>
+            <Font name="OCR A Extended" size="24.0" />
+         </font></Label>
+      <Label fx:id="text1_1" layoutX="204.0" layoutY="177.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_2" layoutX="184.0" layoutY="216.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="205.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_3" layoutX="204.0" layoutY="199.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_4" layoutX="224.0" layoutY="216.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_5" layoutX="163.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="185.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_6" layoutX="185.0" layoutY="239.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="205.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_7" layoutX="205.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_8" layoutX="225.0" layoutY="239.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text1_9" layoutX="245.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_1" layoutX="352.0" layoutY="425.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="158.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_2" layoutX="230.0" layoutY="325.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_3" layoutX="247.0" layoutY="361.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_4" layoutX="270.0" layoutY="325.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="285.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_5" layoutX="204.0" layoutY="287.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_6" layoutX="246.0" layoutY="354.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_7" layoutX="244.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_8" layoutX="286.0" layoutY="355.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="285.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text2_9" layoutX="284.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="305.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_1" layoutX="327.0" layoutY="257.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_2" layoutX="326.0" layoutY="355.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="325.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_3" layoutX="324.0" layoutY="279.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_4" layoutX="366.0" layoutY="355.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_5" layoutX="287.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="305.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_6" layoutX="309.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="325.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_7" layoutX="329.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_8" layoutX="349.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text3_9" layoutX="369.0" layoutY="338.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="188.0" AnchorPane.leftAnchor="385.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_1" layoutX="385.0" layoutY="347.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="385.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_2" layoutX="344.0" layoutY="248.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_3" layoutX="364.0" layoutY="256.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="385.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_4" layoutX="384.0" layoutY="248.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="405.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_5" layoutX="324.0" layoutY="203.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_6" layoutX="344.0" layoutY="217.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_7" layoutX="364.0" layoutY="202.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="385.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_8" layoutX="384.0" layoutY="218.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="308.0" AnchorPane.leftAnchor="405.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text4_9" layoutX="404.0" layoutY="201.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="425.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_1" layoutX="324.0" layoutY="102.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="428.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_2" layoutX="304.0" layoutY="139.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="388.0" AnchorPane.leftAnchor="325.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_3" layoutX="324.0" layoutY="121.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_4" layoutX="344.0" layoutY="139.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="388.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_5" layoutX="282.0" layoutY="179.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="305.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_6" layoutX="304.0" layoutY="163.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="325.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_7" layoutX="324.0" layoutY="179.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="345.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_8" layoutX="344.0" layoutY="163.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="365.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text5_9" layoutX="364.0" layoutY="179.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="385.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_1" layoutX="244.0" layoutY="203.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_2" layoutX="224.0" layoutY="167.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_3" layoutX="244.0" layoutY="175.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_4" layoutX="264.0" layoutY="167.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="285.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_5" layoutX="204.0" layoutY="122.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="225.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_6" layoutX="224.0" layoutY="136.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="388.0" AnchorPane.leftAnchor="245.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_7" layoutX="244.0" layoutY="121.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="265.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_8" layoutX="264.0" layoutY="137.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="388.0" AnchorPane.leftAnchor="285.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Label fx:id="text6_9" layoutX="284.0" layoutY="121.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="305.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Label>
+      <Polygon fx:id="area2_8" blendMode="MULTIPLY" fill="#ed98cd" layoutX="289.0" layoutY="397.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="270.0" />
+      <Polygon fx:id="area2_6" blendMode="MULTIPLY" fill="#ed98cd" layoutX="249.0" layoutY="397.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area2_3" blendMode="MULTIPLY" fill="#ed98cd" layoutX="254.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area2_9" blendMode="MULTIPLY" fill="#ed98cd" layoutX="310.0" layoutY="398.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="290.0" />
+      <Polygon fx:id="area2_7" blendMode="MULTIPLY" fill="#ed98cd" layoutX="270.0" layoutY="399.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area2_4" blendMode="MULTIPLY" fill="#ed98cd" layoutX="274.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="270.0" />
+      <Polygon fx:id="area2_2" blendMode="MULTIPLY" fill="#ed98cd" layoutX="234.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area2_5" blendMode="MULTIPLY" fill="#ed98cd" layoutX="230.0" layoutY="399.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="210.0" />
+      <Polygon fx:id="area2_1" blendMode="MULTIPLY" fill="#ed98cd" layoutX="176.0" layoutY="487.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area6_6" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="252.0" layoutY="235.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area6_3" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="268.0" layoutY="278.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area6_9" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="312.0" layoutY="237.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="290.0" />
+      <Polygon fx:id="area6_7" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="272.0" layoutY="238.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area6_4" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="288.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="270.0" />
+      <Polygon fx:id="area6_2" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="248.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area6_5" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="232.0" layoutY="238.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="210.0" />
+      <Polygon fx:id="area6_1" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="270.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area3_5" blendMode="MULTIPLY" fill="#c0edff" layoutX="294.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="290.0" />
+      <Polygon fx:id="area3_3" blendMode="MULTIPLY" fill="#c0edff" layoutX="350.0" layoutY="399.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area3_8" blendMode="MULTIPLY" fill="#c0edff" layoutX="370.0" layoutY="442.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area3_6" blendMode="MULTIPLY" fill="#c0edff" layoutX="314.0" layoutY="382.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="310.0" />
+      <Polygon fx:id="area3_7" blendMode="MULTIPLY" fill="#c0edff" layoutX="334.0" layoutY="380.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area3_2" blendMode="MULTIPLY" fill="#c0edff" layoutX="329.0" layoutY="397.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="310.0" />
+      <Polygon fx:id="area3_4" blendMode="MULTIPLY" fill="#c0edff" layoutX="369.0" layoutY="400.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area3_9" blendMode="MULTIPLY" fill="#c0edff" layoutX="374.0" layoutY="381.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="370.0" />
+      <Polygon fx:id="area3_1" blendMode="MULTIPLY" fill="#c0edff" layoutX="350.0" layoutY="360.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area4_8" blendMode="MULTIPLY" fill="#fdf779" layoutX="410.0" layoutY="320.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="390.0" />
+      <Polygon fx:id="area4_6" blendMode="MULTIPLY" fill="#fdf779" layoutX="370.0" layoutY="320.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area4_3" blendMode="MULTIPLY" fill="#fdf779" layoutX="390.0" layoutY="360.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="370.0" />
+      <Polygon fx:id="area4_9" blendMode="MULTIPLY" fill="#fdf779" layoutX="430.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="410.0" />
+      <Polygon fx:id="area4_7" blendMode="MULTIPLY" fill="#fdf779" layoutX="390.0" layoutY="323.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="370.0" />
+      <Polygon fx:id="area4_4" blendMode="MULTIPLY" fill="#fdf779" layoutX="410.0" layoutY="362.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="390.0" />
+      <Polygon fx:id="area4_2" blendMode="MULTIPLY" fill="#fdf779" layoutX="370.0" layoutY="362.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area4_5" blendMode="MULTIPLY" fill="#fdf779" layoutX="350.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area4_1" blendMode="MULTIPLY" fill="#fdf779" layoutX="390.0" layoutY="399.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="370.0" />
+      <Polygon fx:id="area5_5" blendMode="MULTIPLY" fill="#fd8092" layoutX="309.0" layoutY="278.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="290.0" />
+      <Polygon fx:id="area5_3" blendMode="MULTIPLY" fill="#fd8092" layoutX="352.0" layoutY="241.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area5_8" blendMode="MULTIPLY" fill="#fd8092" layoutX="369.0" layoutY="281.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area5_6" blendMode="MULTIPLY" fill="#fd8092" layoutX="329.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="310.0" />
+      <Polygon fx:id="area5_7" blendMode="MULTIPLY" fill="#fd8092" layoutX="349.0" layoutY="278.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area5_2" blendMode="MULTIPLY" fill="#fd8092" layoutX="332.0" layoutY="239.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="310.0" />
+      <Polygon fx:id="area5_4" blendMode="MULTIPLY" fill="#fd8092" layoutX="372.0" layoutY="239.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="350.0" />
+      <Polygon fx:id="area5_9" blendMode="MULTIPLY" fill="#fd8092" layoutX="390.0" layoutY="280.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="370.0" />
+      <Polygon fx:id="area5_1" blendMode="MULTIPLY" fill="#fd8092" layoutX="355.0" layoutY="200.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="420.0" AnchorPane.leftAnchor="330.0" />
+      <Polygon fx:id="area6_8" blendMode="MULTIPLY" fill="#d8ed6e" layoutX="293.0" layoutY="235.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="380.0" AnchorPane.leftAnchor="270.0" />
+      <Polygon fx:id="area1_5" blendMode="MULTIPLY" fill="#f39005" layoutX="190.0" layoutY="357.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="170.0" />
+      <Polygon fx:id="area1_3" blendMode="MULTIPLY" fill="#f39005" layoutX="230.0" layoutY="322.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="210.0" />
+      <Polygon fx:id="area1_8" blendMode="MULTIPLY" fill="#f39005" layoutX="250.0" layoutY="360.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area1_6" blendMode="MULTIPLY" fill="#f39005" layoutX="210.0" layoutY="359.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -62.0, 20.0, -62.0, 0.0, -22.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="190.0" />
+      <Polygon fx:id="area1_7" blendMode="MULTIPLY" fill="#f39005" layoutX="230.0" layoutY="357.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="210.0" />
+      <Polygon fx:id="area1_2" blendMode="MULTIPLY" fill="#f39005" layoutX="210.0" layoutY="320.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="190.0" />
+      <Polygon fx:id="area1_4" blendMode="MULTIPLY" fill="#f39005" layoutX="250.0" layoutY="320.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="230.0" />
+      <Polygon fx:id="area1_9" blendMode="MULTIPLY" fill="#f39005" layoutX="270.0" layoutY="358.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="260.0" AnchorPane.leftAnchor="250.0" />
+      <Polygon fx:id="area1_1" blendMode="MULTIPLY" fill="#f39005" layoutX="228.0" layoutY="279.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" points="-20.0, -20.0, 20.0, -20.0, 0.0, -60.0" stroke="BLACK" strokeType="INSIDE" styleClass="triangle_area2" AnchorPane.bottomAnchor="340.0" AnchorPane.leftAnchor="210.0" />
+      <Button fx:id="button1" layoutX="584.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="1" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="190.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button2" layoutX="642.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="2" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="190.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button3" layoutX="699.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="3" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="190.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button4" layoutX="447.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="4" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="240.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button5" layoutX="491.0" layoutY="223.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="5" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="240.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button6" layoutX="687.0" layoutY="236.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="6" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="240.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button7" layoutX="449.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="7" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button8" layoutX="493.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="8" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
+      <Button fx:id="button9" layoutX="534.0" layoutY="264.0" mnemonicParsing="false" onAction="#handleUpdateValue" text="9" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="290.0">
+         <font>
+            <Font name="OCR A Extended" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
