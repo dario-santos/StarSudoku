@@ -36,7 +36,7 @@
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Button>
-      <ImageView fitHeight="310.0" fitWidth="550.0" layoutX="130.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="-25.0">
+      <ImageView fitHeight="600.0" fitWidth="900.0" layoutX="-100.0" layoutY="1.0" opacity="0.05" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-100.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
             <Image url="@../../../../../../../Desktop/Universidade/IHC/Trabalho%20-%20Sudoku/Sudoku/Titulo.png" />
          </image>
