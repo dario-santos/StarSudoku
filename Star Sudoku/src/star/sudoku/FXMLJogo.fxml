@@ -32,219 +32,219 @@
          <font>
             <Font name="OCR A Extended" size="24.0" />
          </font></Label>
-      <Label fx:id="text1_1" layoutX="316.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="316.0">
+      <Label fx:id="text1_1" layoutX="316.0" layoutY="225.0" text="1" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="316.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_2" layoutX="296.0" layoutY="265.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="296.0">
+      <Label fx:id="text1_2" layoutX="296.0" layoutY="265.0" text="2" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="296.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_3" layoutX="316.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="316.0">
+      <Label fx:id="text1_3" layoutX="316.0" layoutY="255.0" text="3" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="316.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_4" layoutX="336.0" layoutY="265.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text1_4" layoutX="336.0" layoutY="265.0" text="4" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_5" layoutX="276.0" layoutY="305.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="276.0">
+      <Label fx:id="text1_5" layoutX="276.0" layoutY="305.0" text="5" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="276.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_6" layoutX="296.0" layoutY="295.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="296.0">
+      <Label fx:id="text1_6" layoutX="296.0" layoutY="295.0" text="6" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="296.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_7" layoutX="316.0" layoutY="305.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="316.0">
+      <Label fx:id="text1_7" layoutX="316.0" layoutY="305.0" text="7" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="316.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_8" layoutX="336.0" layoutY="295.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text1_8" layoutX="336.0" layoutY="295.0" text="8" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text1_9" layoutX="356.0" layoutY="305.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text1_9" layoutX="356.0" layoutY="305.0" text="9" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_1" layoutX="356.0" layoutY="415.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="168.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text2_1" layoutX="356.0" layoutY="415.0" text="1" AnchorPane.bottomAnchor="168.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_2" layoutX="336.0" layoutY="375.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text2_2" layoutX="336.0" layoutY="375.0" text="2" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_3" layoutX="356.0" layoutY="385.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text2_3" layoutX="356.0" layoutY="385.0" text="3" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_4" layoutX="376.0" layoutY="375.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="376.0">
+      <Label fx:id="text2_4" layoutX="376.0" layoutY="375.0" text="4" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="376.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_5" layoutX="316.0" layoutY="335.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="316.0">
+      <Label fx:id="text2_5" layoutX="316.0" layoutY="335.0" text="5" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="316.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_6" layoutX="336.0" layoutY="345.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text2_6" layoutX="336.0" layoutY="345.0" text="6" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_7" layoutX="356.0" layoutY="335.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text2_7" layoutX="356.0" layoutY="335.0" text="7" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_8" layoutX="376.0" layoutY="345.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="376.0">
+      <Label fx:id="text2_8" layoutX="376.0" layoutY="345.0" text="8" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="376.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text2_9" layoutX="396.0" layoutY="335.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="396.0">
+      <Label fx:id="text2_9" layoutX="396.0" layoutY="335.0" text="9" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="396.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_1" layoutX="436.0" layoutY="305.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text3_1" layoutX="436.0" layoutY="305.0" text="1" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_2" layoutX="416.0" layoutY="345.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="416.0">
+      <Label fx:id="text3_2" layoutX="416.0" layoutY="345.0" text="2" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="416.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_3" layoutX="436.0" layoutY="335.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text3_3" layoutX="436.0" layoutY="335.0" text="3" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_4" layoutX="456.0" layoutY="345.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text3_4" layoutX="456.0" layoutY="345.0" text="4" AnchorPane.bottomAnchor="238.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_5" layoutX="396.0" layoutY="385.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="396.0">
+      <Label fx:id="text3_5" layoutX="396.0" layoutY="385.0" text="5" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="396.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_6" layoutX="416.0" layoutY="375.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="416.0">
+      <Label fx:id="text3_6" layoutX="416.0" layoutY="375.0" text="6" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="416.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_7" layoutX="436.0" layoutY="385.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text3_7" layoutX="436.0" layoutY="385.0" text="7" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_8" layoutX="456.0" layoutY="375.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text3_8" layoutX="456.0" layoutY="375.0" text="8" AnchorPane.bottomAnchor="208.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text3_9" layoutX="476.0" layoutY="385.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="476.0">
+      <Label fx:id="text3_9" layoutX="476.0" layoutY="385.0" text="9" AnchorPane.bottomAnchor="198.0" AnchorPane.leftAnchor="476.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_1" layoutX="476.0" layoutY="335.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="476.0">
+      <Label fx:id="text4_1" layoutX="476.0" layoutY="335.0" text="1" AnchorPane.bottomAnchor="248.0" AnchorPane.leftAnchor="476.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_2" layoutX="456.0" layoutY="295.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text4_2" layoutX="456.0" layoutY="295.0" text="2" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_3" layoutX="476.0" layoutY="305.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="476.0">
+      <Label fx:id="text4_3" layoutX="476.0" layoutY="305.0" text="3" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="476.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_4" layoutX="496.0" layoutY="295.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="496.0">
+      <Label fx:id="text4_4" layoutX="496.0" layoutY="295.0" text="4" AnchorPane.bottomAnchor="288.0" AnchorPane.leftAnchor="496.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_5" layoutX="436.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text4_5" layoutX="436.0" layoutY="255.0" text="5" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_6" layoutX="456.0" layoutY="265.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text4_6" layoutX="456.0" layoutY="265.0" text="6" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_7" layoutX="476.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="476.0">
+      <Label fx:id="text4_7" layoutX="476.0" layoutY="255.0" text="7" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="476.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_8" layoutX="496.0" layoutY="265.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="496.0">
+      <Label fx:id="text4_8" layoutX="496.0" layoutY="265.0" text="8" AnchorPane.bottomAnchor="318.0" AnchorPane.leftAnchor="496.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text4_9" layoutX="516.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="516.0">
+      <Label fx:id="text4_9" layoutX="516.0" layoutY="255.0" text="9" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="516.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_1" layoutX="436.0" layoutY="145.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="438.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text5_1" layoutX="436.0" layoutY="145.0" text="1" AnchorPane.bottomAnchor="438.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_2" layoutX="416.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="416.0">
+      <Label fx:id="text5_2" layoutX="416.0" layoutY="185.0" text="2" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="416.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_3" layoutX="436.0" layoutY="175.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text5_3" layoutX="436.0" layoutY="175.0" text="3" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_4" layoutX="456.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text5_4" layoutX="456.0" layoutY="185.0" text="4" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_5" layoutX="396.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="396.0">
+      <Label fx:id="text5_5" layoutX="396.0" layoutY="225.0" text="5" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="396.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_6" layoutX="416.0" layoutY="215.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="416.0">
+      <Label fx:id="text5_6" layoutX="416.0" layoutY="215.0" text="6" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="416.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_7" layoutX="436.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="436.0">
+      <Label fx:id="text5_7" layoutX="436.0" layoutY="225.0" text="7" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="436.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_8" layoutX="456.0" layoutY="215.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="456.0">
+      <Label fx:id="text5_8" layoutX="456.0" layoutY="215.0" text="8" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="456.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text5_9" layoutX="476.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="476.0">
+      <Label fx:id="text5_9" layoutX="476.0" layoutY="225.0" text="9" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="476.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_1" layoutX="356.0" layoutY="255.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="1" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text6_1" layoutX="356.0" layoutY="255.0" text="1" AnchorPane.bottomAnchor="328.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_2" layoutX="336.0" layoutY="215.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="2" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text6_2" layoutX="336.0" layoutY="215.0" text="2" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_3" layoutX="356.0" layoutY="225.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="3" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text6_3" layoutX="356.0" layoutY="225.0" text="3" AnchorPane.bottomAnchor="358.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_4" layoutX="376.0" layoutY="215.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="4" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="376.0">
+      <Label fx:id="text6_4" layoutX="376.0" layoutY="215.0" text="4" AnchorPane.bottomAnchor="368.0" AnchorPane.leftAnchor="376.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_5" layoutX="316.0" layoutY="175.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="5" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="316.0">
+      <Label fx:id="text6_5" layoutX="316.0" layoutY="175.0" text="5" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="316.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_6" layoutX="336.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="6" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="336.0">
+      <Label fx:id="text6_6" layoutX="336.0" layoutY="185.0" text="6" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="336.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_7" layoutX="356.0" layoutY="175.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="7" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="356.0">
+      <Label fx:id="text6_7" layoutX="356.0" layoutY="175.0" text="7" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="356.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_8" layoutX="376.0" layoutY="185.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="8" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="376.0">
+      <Label fx:id="text6_8" layoutX="376.0" layoutY="185.0" text="8" AnchorPane.bottomAnchor="398.0" AnchorPane.leftAnchor="376.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>
-      <Label fx:id="text6_9" layoutX="396.0" layoutY="175.0" onMouseClicked="#handleHighLigh" onMousePressed="#handleHighLigh" text="9" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="396.0">
+      <Label fx:id="text6_9" layoutX="396.0" layoutY="175.0" text="9" AnchorPane.bottomAnchor="408.0" AnchorPane.leftAnchor="396.0">
          <font>
             <Font name="OCR A Extended" size="16.0" />
          </font></Label>

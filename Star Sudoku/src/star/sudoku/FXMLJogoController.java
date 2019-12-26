@@ -246,10 +246,10 @@ public class FXMLJogoController implements Initializable
         
         selectedLabel.setText(text);
         
-        int i = selectedLabel.getId().charAt(selectedLabel.getId().length() - 1);
-        int a = selectedLabel.getId().split("text")[0].charAt(0);
+        int i = Character.getNumericValue(selectedLabel.getId().charAt(selectedLabel.getId().length() - 1));
+        int a = Character.getNumericValue(selectedLabel.getId().split("text")[1].charAt(0));
         
-        userBoard[a][i] = Integer.valueOf(text);
+        userBoard[a - 1][i - 1] = Integer.valueOf(text);
     }
     
     @FXML
@@ -273,7 +273,7 @@ public class FXMLJogoController implements Initializable
     private void loadSudokuBoard(int level)
     {
         userBoard = GameLevels.getInitialBoard(level);
-        solution = GameLevels.getInitialBoard(level);
+        solution = GameLevels.getSolutionBoard(level);
         
         for(int a = 0 ; a < 6 ; a++)
         {
