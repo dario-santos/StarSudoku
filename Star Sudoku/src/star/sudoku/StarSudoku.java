@@ -6,16 +6,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.File;
-import java.util.Timer;
 import star.sudoku.sqlite.AjudanteParaBD;
 
 public class StarSudoku extends Application 
 {
     @Override
     public void start(Stage stage) throws Exception 
-    {
-        SharedInformation.timer = new Timer();
-        
+    {        
         Parent root = FXMLLoader.load(getClass().getResource("FXMLLogin.fxml"));
         
         Scene scene = new Scene(root);

@@ -283,7 +283,6 @@ public class FXMLJogoController implements Initializable
                 {
                     area.get(i).setDisable(true);
                     dic.get(area.get(i)).setText(String.valueOf(userBoard[a][i]));
-                    dic.get(area.get(i)).setStyle("-fx-text-fill: #2c3e50;");
                 }
                 else
                 {
@@ -296,6 +295,8 @@ public class FXMLJogoController implements Initializable
     
     private void startClock()
     {
+        SharedInformation.timer = new Timer();
+        
         SharedInformation.timer.scheduleAtFixedRate(new TimerTask() 
         {
             @Override
