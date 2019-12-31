@@ -128,8 +128,6 @@ public class FXMLJogoController implements Initializable
     private int [][] solution = null;
     private int currentTime = 0;
     
-    private Timer timer = new Timer();
-    
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
@@ -161,7 +159,7 @@ public class FXMLJogoController implements Initializable
     {
         pane.setStyle("-fx-background-color: #8BC34A;");
         
-        timer.cancel();
+        SharedInformation.timer.cancel();
         
         for(Polygon key : dic.keySet())
         {
@@ -219,7 +217,7 @@ public class FXMLJogoController implements Initializable
             Scene scene = new Scene(root);
             Stage stage = (Stage) controlPause.getScene().getWindow();
             
-            timer.cancel();
+            SharedInformation.timer.cancel();
             stage.setScene(scene);
             stage.show();
         } 
@@ -227,7 +225,7 @@ public class FXMLJogoController implements Initializable
         {
             Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
             
-            timer.cancel();
+            SharedInformation.timer.cancel();
         }
     }
 
@@ -298,7 +296,7 @@ public class FXMLJogoController implements Initializable
     
     private void startClock()
     {
-        timer.scheduleAtFixedRate(new TimerTask() 
+        SharedInformation.timer.scheduleAtFixedRate(new TimerTask() 
         {
             @Override
             public void run() 
