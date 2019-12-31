@@ -78,8 +78,6 @@ public class AjudanteParaBD
             String url = "jdbc:sqlite:" + DB_PATH;
             
             conn = DriverManager.getConnection(url);
-            
-            System.out.println("A conecção ao SQLite foi estabelecida.");
             return conn;
         } 
         catch(SQLException e) 
@@ -151,7 +149,6 @@ public class AjudanteParaBD
             pstmt.setString(1, username);
             pstmt.setString(2, password);
         
-            //Statement stmt  = conn.createStatement();
             ResultSet rs = pstmt.executeQuery();
             
             if(!rs.next())
@@ -272,7 +269,7 @@ public class AjudanteParaBD
     public static ArrayList<Pontuacao> selectAllPontuacaoByUser(String username)
     {
         String sql = "SELECT * FROM " + AjudanteParaBD.TABELA_PONTUACAO 
-                     + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR + " = ?;";
+                     + " WHERE " + AjudanteParaBD.PONTUACAO_UTILIZADOR + " = ? ORDER BY " + AjudanteParaBD.PONTUACAO_NIVEL +" ;";
         
         try (Connection conn = AjudanteParaBD.ConnectToDB();
                 PreparedStatement pstmt = conn.prepareStatement(sql)) 
@@ -297,5 +294,4 @@ public class AjudanteParaBD
         
         return null;
     }
-    
 }

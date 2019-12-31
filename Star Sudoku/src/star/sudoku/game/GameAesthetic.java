@@ -1,11 +1,9 @@
 package star.sudoku.game;
 
-/**
- *
- * @author dario
- */
 public class GameAesthetic 
 {
+    private GameAesthetic(){}
+    
     public static String getAreaColor(char id)
     {
         if(id == '1')

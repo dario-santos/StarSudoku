@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLPerfilController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="star.sudoku.FXMLPerfilController">
    <children>
       <Button layoutX="44.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleEnterMainMenu" text="Voltar" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
          <font>
@@ -27,8 +27,8 @@
          </font></Label>
       <TableView fx:id="userScoresTable" layoutX="187.0" layoutY="248.0" prefHeight="263.0" prefWidth="427.0" AnchorPane.bottomAnchor="100.0">
         <columns>
-          <TableColumn fx:id="colGameLevel" prefWidth="117.0" text="Nivel" />
-          <TableColumn fx:id="colTime" prefWidth="228.0" text="Tempo" />
+          <TableColumn fx:id="colGameLevel" prefWidth="152.0" text="Nivel" />
+          <TableColumn fx:id="colTime" prefWidth="274.0" text="Tempo" />
         </columns>
       </TableView>
    </children>

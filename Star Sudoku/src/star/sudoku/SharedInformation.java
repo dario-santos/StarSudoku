@@ -6,4 +6,6 @@ public class SharedInformation
 {
     public static Utilizador user = null;
     public static int gameLevel = 0;
+    
+    private SharedInformation(){}
 }

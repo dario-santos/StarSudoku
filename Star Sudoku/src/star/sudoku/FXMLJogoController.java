@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package star.sudoku;
 
 import java.io.IOException;
@@ -34,14 +29,9 @@ import javafx.stage.Stage;
 import star.sudoku.game.*;
 import star.sudoku.sqlite.Pontuacao;
 
-/**
- * FXML Controller class
- *
- * @author dario
- */
 public class FXMLJogoController implements Initializable 
 {
-    // Area 1 - Laranja
+    // Area 1 - Orange
     @FXML private Polygon area1_1;  @FXML private Label text1_1;
     @FXML private Polygon area1_2;  @FXML private Label text1_2;
     @FXML private Polygon area1_3;  @FXML private Label text1_3;
@@ -52,7 +42,7 @@ public class FXMLJogoController implements Initializable
     @FXML private Polygon area1_8;  @FXML private Label text1_8;
     @FXML private Polygon area1_9;  @FXML private Label text1_9;
     
-    // Area 2 - Roxo
+    // Area 2 - Purple
     @FXML private Polygon area2_1;  @FXML private Label text2_1;
     @FXML private Polygon area2_2;  @FXML private Label text2_2;
     @FXML private Polygon area2_3;  @FXML private Label text2_3;
@@ -63,7 +53,7 @@ public class FXMLJogoController implements Initializable
     @FXML private Polygon area2_8;  @FXML private Label text2_8;
     @FXML private Polygon area2_9;  @FXML private Label text2_9;
     
-    // Area 3 - Azul
+    // Area 3 - Blue
     @FXML private Polygon area3_1;  @FXML private Label text3_1;
     @FXML private Polygon area3_2;  @FXML private Label text3_2;
     @FXML private Polygon area3_3;  @FXML private Label text3_3;
@@ -74,7 +64,7 @@ public class FXMLJogoController implements Initializable
     @FXML private Polygon area3_8;  @FXML private Label text3_8;
     @FXML private Polygon area3_9;  @FXML private Label text3_9;
     
-    // Area 4 - Amarelo
+    // Area 4 - Yellow
     @FXML private Polygon area4_1;  @FXML private Label text4_1;
     @FXML private Polygon area4_2;  @FXML private Label text4_2;
     @FXML private Polygon area4_3;  @FXML private Label text4_3;
@@ -85,7 +75,7 @@ public class FXMLJogoController implements Initializable
     @FXML private Polygon area4_8;  @FXML private Label text4_8;
     @FXML private Polygon area4_9;  @FXML private Label text4_9;
    
-    // Area 5 - Rosa
+    // Area 5 - Pink
     @FXML private Polygon area5_1;  @FXML private Label text5_1;
     @FXML private Polygon area5_2;  @FXML private Label text5_2;
     @FXML private Polygon area5_3;  @FXML private Label text5_3;
@@ -96,7 +86,7 @@ public class FXMLJogoController implements Initializable
     @FXML private Polygon area5_8;  @FXML private Label text5_8;
     @FXML private Polygon area5_9;  @FXML private Label text5_9;
     
-    // Area 6 - Verde
+    // Area 6 - Green
     @FXML private Polygon area6_1;  @FXML private Label text6_1;
     @FXML private Polygon area6_2;  @FXML private Label text6_2;
     @FXML private Polygon area6_3;  @FXML private Label text6_3;
@@ -116,18 +106,19 @@ public class FXMLJogoController implements Initializable
     @FXML private Button button7;
     @FXML private Button button8;
     @FXML private Button button9;
+    @FXML private Button buttonEmpty;
     
     @FXML private AnchorPane pane;
     @FXML private Button controlPause;
     @FXML private Button verificar;
     @FXML private Label lTimer;
     @FXML private Label lGameLevel;
+    @FXML private Label lCongratulations;
     
     private ArrayList<ArrayList<Label>> labels = new ArrayList<>();
     private ArrayList<ArrayList<Polygon>> areas = new ArrayList<>();
     
     private Map<Polygon, Label> dic = new HashMap<>();
-    
     
     private Label selectedLabel = null;
     private Polygon selectedPolygon = null;
@@ -137,14 +128,14 @@ public class FXMLJogoController implements Initializable
     private int [][] solution = null;
     private int currentTime = 0;
     
-    Timer timer = new Timer();
+    private Timer timer = new Timer();
     
     @FXML
     private void handleButtonValidate(ActionEvent event)
     {
         if(!GameLogic.isBoardCorrect(userBoard, solution)) 
         {
-            pane.setStyle("-fx-background-color: #e74c3c;");
+            verificar.setStyle("-fx-background-color: #e74c3c;");
             return;
         }
         
@@ -154,7 +145,8 @@ public class FXMLJogoController implements Initializable
         // Create or Update user time
         if(pont == null)
         {
-            AjudanteParaBD.insertPontuation(SharedInformation.gameLevel,currentTime, SharedInformation.user.getUsername());
+            AjudanteParaBD.insertPontuation(SharedInformation.gameLevel,currentTime, 
+                    SharedInformation.user.getUsername());
         }
         else
         {
@@ -167,21 +159,16 @@ public class FXMLJogoController implements Initializable
     
     private void endGame()
     {
-        pane.setStyle("-fx-background-color: #2ecc71;");
+        pane.setStyle("-fx-background-color: #8BC34A;");
         
         timer.cancel();
         
-        for (int a = 0; a < 6; a++) 
+        for(Polygon key : dic.keySet())
         {
-            ArrayList<Polygon> area = areas.get(a);
-            
-            for (int i = 0; i < 9; i++)
-            {
-                area.get(i).setVisible(false);
-                dic.get(area.get(i)).setVisible(false);
-            }
-        }  
-        
+            key.setVisible(false);
+            dic.get(key).setVisible(false);
+        }
+
         verificar.setVisible(false);
         controlPause.setVisible(false);
         
@@ -194,6 +181,8 @@ public class FXMLJogoController implements Initializable
         button7.setVisible(false);
         button8.setVisible(false);
         button9.setVisible(false);
+        buttonEmpty.setVisible(false);
+        lCongratulations.setVisible(true);
     }
     
     @FXML
@@ -202,16 +191,22 @@ public class FXMLJogoController implements Initializable
         isGamePaused = !isGamePaused;
         controlPause.setText(isGamePaused ? "Continuar" : "Pausar");
 
-        for (int a = 0; a < 6; a++) 
+        for(Polygon key : dic.keySet())
         {
-            ArrayList<Polygon> area = areas.get(a);
-            
-            for (int i = 0; i < 9; i++)
-            {
-                area.get(i).setVisible(!isGamePaused);
-                dic.get(area.get(i)).setVisible(!isGamePaused);
-            }
-        }    
+            key.setVisible(!isGamePaused);
+            dic.get(key).setVisible(!isGamePaused);
+        }
+        
+        button1.setVisible(!isGamePaused);
+        button2.setVisible(!isGamePaused);
+        button3.setVisible(!isGamePaused);
+        button4.setVisible(!isGamePaused);
+        button5.setVisible(!isGamePaused);
+        button6.setVisible(!isGamePaused);
+        button7.setVisible(!isGamePaused);
+        button8.setVisible(!isGamePaused);
+        button9.setVisible(!isGamePaused);
+        buttonEmpty.setVisible(!isGamePaused);
     }
     
     @FXML
@@ -241,6 +236,9 @@ public class FXMLJogoController implements Initializable
     {
         String text = ((Button) event.getSource()).getText();
         
+        if(text.equals("X"))
+            text = " ";
+        
         if(selectedLabel == null)
             return;
         
@@ -249,7 +247,10 @@ public class FXMLJogoController implements Initializable
         int i = Character.getNumericValue(selectedLabel.getId().charAt(selectedLabel.getId().length() - 1));
         int a = Character.getNumericValue(selectedLabel.getId().split("text")[1].charAt(0));
         
-        userBoard[a - 1][i - 1] = Integer.valueOf(text);
+        if(text.equals(" "))
+            userBoard[a - 1][i - 1] = 0;
+        else
+            userBoard[a - 1][i - 1] = Integer.valueOf(text);
     }
     
     @FXML
@@ -284,8 +285,7 @@ public class FXMLJogoController implements Initializable
                 {
                     area.get(i).setDisable(true);
                     dic.get(area.get(i)).setText(String.valueOf(userBoard[a][i]));
-                    dic.get(area.get(i)).setStyle("-fx-font-weight: bold");
-
+                    dic.get(area.get(i)).setStyle("-fx-text-fill: #2c3e50;");
                 }
                 else
                 {
@@ -293,6 +293,7 @@ public class FXMLJogoController implements Initializable
                 }
             }
         }
+        
     }
     
     private void startClock()
@@ -302,7 +303,8 @@ public class FXMLJogoController implements Initializable
             @Override
             public void run() 
             {
-                Platform.runLater(() -> {
+                Platform.runLater(() -> 
+                {
                     if(isGamePaused)
                         return;
                     
@@ -317,7 +319,7 @@ public class FXMLJogoController implements Initializable
                     else if (hours == 0)
                         timeLeftFormatted = String.format(Locale.getDefault(), "%02dm%02ds", minutes, seconds);
                     else
-                        timeLeftFormatted = String.format(Locale.getDefault(),"%02dh%02dm%02ds",hours, minutes, seconds);
+                        timeLeftFormatted = String.format(Locale.getDefault(), "%02dh%02dm%02ds",hours, minutes, seconds);
                     
                     lTimer.setText(timeLeftFormatted);
                 });

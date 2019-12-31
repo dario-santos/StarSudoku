@@ -10,7 +10,6 @@ import star.sudoku.sqlite.AjudanteParaBD;
 
 public class StarSudoku extends Application 
 {
-    
     @Override
     public void start(Stage stage) throws Exception 
     {

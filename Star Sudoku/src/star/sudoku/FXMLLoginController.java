@@ -18,13 +18,10 @@ import javafx.stage.Stage;
 import star.sudoku.sqlite.AjudanteParaBD;
 import star.sudoku.sqlite.Utilizador;
 
-
-public class FXMLLoginController implements Initializable {
-    
-    @FXML
-    private TextField userTextField;
-    @FXML
-    private PasswordField passwordTextField;
+public class FXMLLoginController implements Initializable 
+{    
+    @FXML private TextField userTextField;
+    @FXML private PasswordField passwordTextField;
     
     @FXML
     private void handleLogin(ActionEvent event)
@@ -82,6 +79,4 @@ public class FXMLLoginController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {}    
-    
 }
-

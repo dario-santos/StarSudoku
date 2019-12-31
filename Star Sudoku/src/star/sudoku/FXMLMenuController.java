@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package star.sudoku;
 
 import java.io.IOException;
@@ -21,21 +16,8 @@ import javafx.stage.Stage;
 
 public class FXMLMenuController implements Initializable 
 {
-    @FXML
-    private Button buttonJogar;
+    @FXML private Button buttonJogar;
 
-    @FXML
-    private Button buttonOpcoes;
-
-    @FXML
-    private Button buttonPerfil;
-
-    @FXML
-    private Button buttonPontuacao;
-
-    @FXML
-    private Button buttonInfo;
-    
     @FXML
     private void handleJogarAction(ActionEvent event) 
     {
@@ -133,9 +115,6 @@ public class FXMLMenuController implements Initializable
         }
     }
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {}
 }

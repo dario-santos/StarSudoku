@@ -35,9 +35,7 @@ public class FXMLInfoController implements Initializable
             Logger.getLogger(FXMLMenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {}
 }

@@ -67,6 +67,5 @@ public class FXMLPerfilController implements Initializable
         ArrayList<Pontuacao> pontuacoes = AjudanteParaBD.selectAllPontuacaoByUser(SharedInformation.user.getUsername());
         
         addGamesToTable(pontuacoes);   
-    }    
-    
+    }
 }

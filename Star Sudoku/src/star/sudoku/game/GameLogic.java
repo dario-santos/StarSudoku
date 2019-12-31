@@ -2,6 +2,8 @@ package star.sudoku.game;
 
 public class GameLogic 
 {
+    private GameLogic(){}
+    
     public static boolean isBoardCorrect(int userBoard[][], int solution[][])
     {
         for(int a = 0; a < 6 ; a++)

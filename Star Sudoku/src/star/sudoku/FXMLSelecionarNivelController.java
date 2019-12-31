@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package star.sudoku;
 
 import java.io.IOException;
@@ -19,28 +14,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author dario
- */
-public class FXMLSelecionarNivelController implements Initializable {
-
-    @FXML
-    private Button level_1;
-    
+public class FXMLSelecionarNivelController implements Initializable 
+{    
     @FXML
     private void handleLevelSelector(ActionEvent event) 
     {
-        Button b = (Button) event.getSource();
-        
         Parent root;
+        Button b = (Button) event.getSource();
         try 
         {
             SharedInformation.gameLevel = Integer.valueOf(b.getText());
             root = FXMLLoader.load(getClass().getResource("FXMLJogo.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) level_1.getScene().getWindow();
+            Stage stage = (Stage) b.getScene().getWindow();
             
             stage.setScene(scene);
             stage.show();
@@ -55,11 +41,13 @@ public class FXMLSelecionarNivelController implements Initializable {
     private void handleBack(ActionEvent event)
     {
         Parent root;
+        Button b = (Button) event.getSource();
+        
         try 
         {
             root = FXMLLoader.load(getClass().getResource("FXMLMenu.fxml"));
             Scene scene = new Scene(root);
-            Stage stage = (Stage) level_1.getScene().getWindow();
+            Stage stage = (Stage) b.getScene().getWindow();
             
             stage.setScene(scene);
             stage.show();
@@ -70,12 +58,6 @@ public class FXMLSelecionarNivelController implements Initializable {
         }
     }
     
-    /**
-     * Initializes the controller class.
-     */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
+    public void initialize(URL url, ResourceBundle rb) {}
 }
